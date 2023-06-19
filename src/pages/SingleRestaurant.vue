@@ -47,7 +47,11 @@ export default {
             <hr>
             <div v-for="product in restaurant.products">
                 {{ product.name }}
+                <div>
+                    <button @click="$emit('aggiungi', product)">aggiungi</button>
+                </div>
             </div>
+
         </div>
     </div>
 </template>
