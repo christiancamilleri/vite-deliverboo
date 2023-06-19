@@ -28,7 +28,7 @@ export default {
                         </li>
 
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown d-flex align-items-center">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 <i class="fa-solid fa-cart-shopping"></i>
@@ -36,6 +36,8 @@ export default {
                             <div class="dropdown-menu">
                                 <AppCart></AppCart>
                             </div>
+                            <span v-show="store.cartItems.length" class="badge rounded-pill text-bg-danger">{{
+                                store.cartItems.length }}</span>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/">Sei un
