@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="card mb-3">
         <div class="row g-0">
             <div class="col-12 col-md-4 col-lg-3">
                 <img class="w-100"

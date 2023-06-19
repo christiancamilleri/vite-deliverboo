@@ -40,9 +40,11 @@ export default {
         },
 
         addToCart(item) {
+
             if (this.store.cartItems.length) {
-                if (this.restaurant_id == item['restaurant_id']) {
+                if (this.store.restaurant_id == item['restaurant_id']) {
                     this.store.cartItems.push(item);
+                    // this.store.totalPrice = (+this.store.totalPrice) + (+item.price);
                     this.saveCartItems();
                 }
                 else {
@@ -50,14 +52,19 @@ export default {
                 }
             }
             else {
-                this.restaurant_id = item['restaurant_id'];
+                this.store.restaurant_id = item['restaurant_id'];
                 this.store.cartItems.push(item);
+                // this.store.totalPrice = (+this.store.totalPrice) + (+item.price);
+
                 this.saveCartItems();
             }
         },
 
         saveCartItems() {
             localStorage.setItem('cartItems', JSON.stringify(this.store.cartItems));
+            localStorage.setItem('restaurant_id', this.store.restaurant_id)
+            // localStorage.setItem('totalPrice', (+this.store.totalPrice))
+
         },
     },
 }
@@ -71,7 +78,7 @@ export default {
             </h1>
             <hr>
             <div class="d-flex flex-column gap-1">
-                <div class="d-flex gap-1" v-for="product in restaurant.products">
+                <div class="d-flex  gap-1" v-for="product in restaurant.products">
                     <ProductCard :product="product" @addToCart="addToCart"></ProductCard>
                 </div>
             </div>
