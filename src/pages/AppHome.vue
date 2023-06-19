@@ -66,7 +66,9 @@ export default {
                         <img src="" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">{{ restaurant.name }}</h5>
-                            <button class="btn btn-primary" disabled>Dettagli</button>
+                            <router-link class="btn btn-primary"
+                                :to="{ name: 'restaurant.show', params: { slug: restaurant.slug } }">Mostra
+                                dettagli</router-link>
                         </div>
                     </div>
                 </div>
