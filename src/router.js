@@ -2,6 +2,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import AppHome from './pages/AppHome.vue';
+import AppCart from './components/AppCart.vue';
 import SingleRestaurant from './pages/SingleRestaurant.vue';
 
 
@@ -21,7 +22,12 @@ const router = createRouter({
             path: '/restaurant/:slug',
             name: 'restaurant.show',
             component: SingleRestaurant,
-        }
+        },
+        {
+            path: '/cart',
+            name: 'cart',
+            component: AppCart,
+        },
     ]
 });
 

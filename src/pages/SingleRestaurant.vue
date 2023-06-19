@@ -1,10 +1,15 @@
 <script>
 import axios from 'axios';
+import { store } from '../store.js';
+
+import ProductCard from '../components/ProductCard.vue';
+
 export default {
     name: 'SingleRestaurant',
 
     data() {
         return {
+            store,
             slug: '',
             restaurantFound: false,
             restaurant: {}
@@ -12,7 +17,7 @@ export default {
     },
 
     components: {
-
+        ProductCard,
     },
 
     mounted() {
@@ -24,17 +29,37 @@ export default {
     methods: {
         getRestaurant() {
             axios.get('http://127.0.0.1:8000/api/restaurants/' + this.slug).then(res => {
-
-                console.log(res);
                 if (res.data.success) {
                     this.restaurant = res.data.restaurant;
+                    document.title += ' - ' + this.restaurant.name;
                     this.restaurantFound = true
                 } else {
                     this.restaurantFound = false
                 }
             });
-        }
-    }
+        },
+
+        addToCart(item) {
+            if (this.store.cartItems.length) {
+                if (this.restaurant_id == item['restaurant_id']) {
+                    this.store.cartItems.push(item);
+                    this.saveCartItems();
+                }
+                else {
+                    alert('Stai ordinando in un altro ristorante');
+                }
+            }
+            else {
+                this.restaurant_id = item['restaurant_id'];
+                this.store.cartItems.push(item);
+                this.saveCartItems();
+            }
+        },
+
+        saveCartItems() {
+            localStorage.setItem('cartItems', JSON.stringify(this.store.cartItems));
+        },
+    },
 }
 </script>
 
@@ -45,14 +70,13 @@ export default {
                 {{ restaurant.name }}
             </h1>
             <hr>
-            <div v-for="product in restaurant.products">
-                {{ product.name }}
-                <div>
-                    <button @click="$emit('aggiungi', product)">aggiungi</button>
+            <div class="d-flex flex-column gap-1">
+                <div class="d-flex gap-1" v-for="product in restaurant.products">
+                    <ProductCard :product="product" @addToCart="addToCart"></ProductCard>
                 </div>
             </div>
-
         </div>
+
     </div>
 </template>
 

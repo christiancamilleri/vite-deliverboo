@@ -1,8 +1,6 @@
 <script>
-
-
-
 import axios from 'axios';
+import RestaurantCard from '../components/RestaurantCard.vue';
 
 export default {
     name: 'AppHome',
@@ -17,10 +15,6 @@ export default {
 
             isLoading: false,
         }
-    },
-
-    components: {
-
     },
 
     created() {
@@ -43,6 +37,10 @@ export default {
                 this.isLoading = false;
             });
         },
+    },
+
+    components: {
+        RestaurantCard,
     }
 }
 </script>
@@ -64,16 +62,8 @@ export default {
             </div>
 
             <div v-else-if="success" class="row g-3">
-                <div v-for="restaurant in restaurants" class="col-4">
-                    <div class="card">
-                        <img src="" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ restaurant.name }}</h5>
-                            <router-link class="btn btn-primary"
-                                :to="{ name: 'restaurant.show', params: { slug: restaurant.slug } }">Mostra
-                                dettagli</router-link>
-                        </div>
-                    </div>
+                <div v-for="restaurant in restaurants" class="col-12  col-md-4 col-lg-3">
+                    <RestaurantCard :restaurant="restaurant"></RestaurantCard>
                 </div>
             </div>
             <div v-else class="alert alert-danger">

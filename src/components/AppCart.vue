@@ -1,54 +1,50 @@
-
 <script>
+import { store } from '../store.js';
+
 export default {
     name: 'Cart',
+
     data() {
         return {
-            // cartItems: [],
+            store,
         };
     },
-    // mounted() {
-    //     this.loadCartItems(); // Carica i dati del carrello dal LocalStorage quando il componente viene creato
 
-    // },
-    // methods: {
-    //     addToCart(item) {
-    //         console.log('aggiunto')
-    //         this.cartItems.push(item);
-    //         this.saveCartItems();
+    methods: {
+        addToCart(item) {
+            console.log(this.restaurant_id);
+            this.store.cartItems.push(item);
+            this.saveCartItems();
+        },
 
+        removeFromCart(item) {
+            const index = this.store.cartItems.indexOf(item);
+            if (index !== -1) {
+                this.store.cartItems.splice(index, 1);
+                this.saveCartItems();
+            }
+        },
 
-    //         // Salva i dati del carrello nel LocalStorage dopo l'aggiunta di un elemento
-    //     },
-    //     removeFromCart(item) {
-    //         const index = this.cartItems.indexOf(item);
-    //         if (index !== -1) {
-    //             this.cartItems.splice(index, 1);
-    //             this.saveCartItems();
-    //             // Salva i dati del carrello nel LocalStorage dopo la rimozione di un elemento
-    //         }
-    //     },
-    //     loadCartItems() {
-    //         const savedCartItems = localStorage.getItem('cartItems');
-    //         if (savedCartItems) {
-    //             this.cartItems = JSON.parse(savedCartItems);
-    //         }
-    //     },
-    //     saveCartItems() {
-    //         localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
-    //     },
-    // },
+        saveCartItems() {
+            localStorage.setItem('cartItems', JSON.stringify(this.store.cartItems));
+        },
+    },
 };
 </script>
 
 <template>
     <div class="container">
+        <ul v-if="store.cartItems.length" class="list-group">
+            <li class="list-group-item" v-for="item in store.cartItems">
+                {{ item.name }} -<button class="btn btn-danger" @click="removeFromCart(item)"><i
+                        class="fa-solid fa-trash"></i></button>
+            </li>
 
-        <!-- <div>
-            <div v-for="item in cartItems">
-                <span>{{ item.name }} .... {{ item.price }}</span>
-            </div>
-        </div> -->
+        </ul>
+
+        <div v-else class="alert alert-info" role="alert">
+            Carrello vuoto.
+        </div>
     </div>
 </template>
 
