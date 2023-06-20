@@ -12,8 +12,8 @@ export default {
             error: '',
             typologyId: '',
             success: false,
-
             isLoading: false,
+            typologiesChecked: [],
         }
     },
 
@@ -25,7 +25,22 @@ export default {
         getRestaurants() {
             this.isLoading = true;
 
-            axios.get('http://127.0.0.1:8000/api/restaurants' + '?typology_id=' + this.typologyId).then(res => {
+            let apiRequest = 'http://127.0.0.1:8000/api/restaurants';
+
+            if (this.typologiesChecked.length) {
+                this.typologiesChecked.forEach((typology, index) => {
+                    if (index == 0) {
+                        apiRequest += '?typology_ids[]=';
+                    }
+                    else {
+                        apiRequest += '&typology_ids[]=';
+                    }
+
+                    apiRequest += typology;
+                });
+            }
+
+            axios.get(apiRequest).then(res => {
                 this.success = res.data.success;
                 if (this.success) {
                     this.restaurants = res.data.results;
@@ -37,6 +52,11 @@ export default {
                 this.isLoading = false;
             });
         },
+
+        removeFilters() {
+            this.typologiesChecked = [];
+            this.getRestaurants();
+        }
     },
 
     components: {
@@ -51,10 +71,17 @@ export default {
             <h1>Ristoranti</h1>
 
             <form class="mb-3" action="" @submit.prevent="" @change="getRestaurants()">
-                <select class="form-select" v-model="typologyId" name="typology_id" id="typology_id">
-                    <option value="" selected>Tutte</option>
-                    <option v-for="typology in typologies" :value="typology.id"> {{ typology.name }}</option>
-                </select>
+                <div id="checkboxes" class="d-flex gap-3">
+                    <div v-for="typology in typologies" class="form-check">
+                        <input v-model="typologiesChecked" class="form-check-input" type="checkbox" name="typologies"
+                            :id="'typologies-' + typology.id" :value="typology.id">
+                        <label class="form-check-label" :for="'typologies-' + typology.id">
+                            {{ typology.name }}
+                        </label>
+                    </div>
+                </div>
+
+                <button @click="removeFilters()" class="btn btn-primary">Rimuovi filtri</button>
             </form>
 
             <div v-if="isLoading == true" class="spinner-border" role="status">
