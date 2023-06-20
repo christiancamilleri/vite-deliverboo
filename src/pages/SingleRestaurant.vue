@@ -1,7 +1,6 @@
 <script>
 import axios from 'axios';
 import { store } from '../store.js';
-
 import ProductCard from '../components/ProductCard.vue';
 
 export default {
@@ -40,11 +39,9 @@ export default {
         },
 
         addToCart(item) {
-
             if (this.store.cartItems.length) {
                 if (this.store.restaurant_id == item['restaurant_id']) {
                     this.store.cartItems.push(item);
-                    // this.store.totalPrice = (+this.store.totalPrice) + (+item.price);
                     this.saveCartItems();
                 }
                 else {
@@ -54,7 +51,6 @@ export default {
             else {
                 this.store.restaurant_id = item['restaurant_id'];
                 this.store.cartItems.push(item);
-                // this.store.totalPrice = (+this.store.totalPrice) + (+item.price);
 
                 this.saveCartItems();
             }
@@ -62,10 +58,20 @@ export default {
 
         saveCartItems() {
             localStorage.setItem('cartItems', JSON.stringify(this.store.cartItems));
-            localStorage.setItem('restaurant_id', this.store.restaurant_id)
-            // localStorage.setItem('totalPrice', (+this.store.totalPrice))
-
+            localStorage.setItem('restaurant_id', this.store.restaurant_id);
+            this.updateTotalPrice();
         },
+
+        updateTotalPrice() {
+            let totalPrice = 0;
+
+            this.store.cartItems.forEach(item => {
+                totalPrice += parseFloat(item.price);
+            });
+
+            this.store.totalPrice = totalPrice;
+            localStorage.setItem('total_price', this.store.totalPrice);
+        }
     },
 }
 </script>
