@@ -19,8 +19,8 @@ const router = createRouter({
             }
         },
         {
-            path: '/restaurant/:slug',
-            name: 'restaurant.show',
+            path: '/restaurants/:slug',
+            name: 'restaurants.show',
             component: SingleRestaurant,
         },
         {
@@ -32,7 +32,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-    document.title = to.meta?.title ? 'DeliverBoo - ' + to.meta.title : 'Deliverboo';
+    document.title = to.meta?.title ? 'DeliveBoo - ' + to.meta.title : 'DeliveBoo';
 });
 
 export { router };

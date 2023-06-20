@@ -34,7 +34,7 @@ export default {
                     :style="{ backgroundColor: typology.color }">{{ typology.name }}</span>
             </p>
             <router-link class="btn btn-primary justify-self-end"
-                :to="{ name: 'restaurant.show', params: { slug: restaurant.slug } }">Mostra
+                :to="{ name: 'restaurants.show', params: { slug: restaurant.slug } }">Mostra
                 dettagli</router-link>
         </div>
     </div>

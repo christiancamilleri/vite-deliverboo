@@ -19,7 +19,7 @@ export default {
         <div class="row g-0">
             <div class="col-12 col-md-4 col-lg-3">
                 <img class="w-100"
-                    src="https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg"
+                    :src="product.photo ? 'http://127.0.0.1:8000/storage/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
                     alt="">
             </div>
             <div class="col-md-8">
