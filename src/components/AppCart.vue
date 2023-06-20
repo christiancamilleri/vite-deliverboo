@@ -52,6 +52,11 @@ export default {
 
             this.store.totalPrice = totalPrice;
             localStorage.setItem('total_price', this.store.totalPrice);
+        },
+
+        emptyCart() {
+            this.store.cartItems = [];
+            this.saveCartItems();
         }
     },
 };
@@ -70,7 +75,9 @@ export default {
                 </li>
             </ul>
 
-            <strong>Totale: € {{ parseFloat(store.totalPrice).toFixed(2) }}</strong>
+            <p>Totale: € {{ parseFloat(store.totalPrice).toFixed(2) }}</p>
+
+            <button @click="emptyCart()" class="btn btn-primary">Svuota carrello</button>
         </div>
 
         <div v-else class="alert alert-info" role="alert">
