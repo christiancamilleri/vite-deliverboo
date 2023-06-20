@@ -22,6 +22,17 @@ export default {
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <div>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                    <span v-show="store.cartItems.length" class="badge rounded-pill text-bg-danger">
+                        {{ store.cartItems.length }}
+                    </span>
+                </div>
+
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -31,18 +42,6 @@ export default {
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/">Sei un
                                 ristoratore?</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <div>
-                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                                <span v-show="store.cartItems.length" class="badge rounded-pill text-bg-danger">
-                                    {{ store.cartItems.length }}
-                                </span>
-                            </div>
                         </li>
                     </ul>
                 </div>
