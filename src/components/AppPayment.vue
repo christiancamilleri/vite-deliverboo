@@ -1,10 +1,13 @@
 <script>
 import dropin from 'braintree-web-drop-in';
 import axios from 'axios';
+import { store } from '../store.js';
 
 export default {
     data() {
         return {
+            store,
+
             dropinInstance: null,
 
             paymentSuccess: false,
@@ -32,8 +35,6 @@ export default {
                         this.paymentSuccess = res.data.success;
                         this.paymentMessage = res.data.message;
                         this.paymentLoading = false;
-
-                        this.emptyCart();
                     });
                 });
             }
