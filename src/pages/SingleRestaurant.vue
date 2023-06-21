@@ -38,20 +38,37 @@ export default {
             });
         },
 
-        addToCart(item) {
-            if (this.store.cartItems.length) {
+        addToCart(object) {
+            let item = object.product;
+            let quantity = object.quantityToAdd;
+            
+            if (this.store.cartItems.length != 0) {
                 if (this.store.restaurant_id == item['restaurant_id']) {
-                    this.store.cartItems.push(item);
+                    let duplicate = this.store.cartItems.find(element => element.product.id == item.id);
+                    if(duplicate) {
+                        duplicate.quantity += quantity;
+                    }
+                    else {
+                        console.log('nuovo');
+                            const newItem = {
+                                'product' : item,
+                                'quantity' : quantity,
+                            };
+                        this.store.cartItems.push(newItem);
+                    }
                     this.saveCartItems();
                 }
                 else {
                     alert('Stai ordinando in un altro ristorante');
                 }
-            }
-            else {
-                this.store.restaurant_id = item['restaurant_id'];
-                this.store.cartItems.push(item);
 
+            } else {
+                const newItem = {
+                        'product' : item,
+                        'quantity' : quantity,
+                    }
+                this.store.restaurant_id = item['restaurant_id'];
+                this.store.cartItems.push(newItem);
                 this.saveCartItems();
             }
         },
@@ -59,18 +76,20 @@ export default {
         saveCartItems() {
             localStorage.setItem('cartItems', JSON.stringify(this.store.cartItems));
             localStorage.setItem('restaurant_id', this.store.restaurant_id);
-            this.updateTotalPrice();
+            this.updateCartInfo();
         },
 
-        updateTotalPrice() {
-            let totalPrice = 0;
+        updateCartInfo() {
+            this.store.totalPrice = 0;
+            this.store.cartQuantity = 0;
 
             this.store.cartItems.forEach(item => {
-                totalPrice += parseFloat(item.price);
+                this.store.totalPrice += parseFloat(item.product.price * item.quantity);
+                this.store.cartQuantity += parseFloat(item.quantity);
             });
-
-            this.store.totalPrice = totalPrice;
+            
             localStorage.setItem('total_price', this.store.totalPrice);
+            localStorage.setItem('quantity', this.store.cartQuantity);
         }
     },
 }

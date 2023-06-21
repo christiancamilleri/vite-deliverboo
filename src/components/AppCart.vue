@@ -1,31 +1,49 @@
 <script>
 import { store } from '../store.js';
-
 import AppPayment from './AppPayment.vue';
+
 export default {
     name: "Cart",
+
     data() {
         return {
             store,
         };
     },
+
     methods: {
-        addToCart(item) {
-            if (this.store.cartItems.length) {
-                if (this.store.restaurant_id == item["restaurant_id"]) {
-                    this.store.cartItems.push(item);
+        addToCart(item, quantity = 1) {
+            if (this.store.cartItems.length != 0) {
+                if (this.store.restaurant_id == item['restaurant_id']) {
+                    let duplicate = this.store.cartItems.find(element => element.product.id == item.id);
+                    if(duplicate) {
+                        duplicate.quantity += quantity;
+                    }
+                    else {
+                        console.log('nuovo');
+                            const newItem = {
+                                'product' : item,
+                                'quantity' : quantity,
+                            };
+                        this.store.cartItems.push(newItem);
+                    }
                     this.saveCartItems();
                 }
                 else {
-                    alert("Stai ordinando in un altro ristorante");
+                    alert('Stai ordinando in un altro ristorante');
                 }
-            }
-            else {
-                this.store.restaurant_id = item["restaurant_id"];
-                this.store.cartItems.push(item);
+
+            } else {
+                const newItem = {
+                        'product' : item,
+                        'quantity' : quantity,
+                    }
+                this.store.restaurant_id = item['restaurant_id'];
+                this.store.cartItems.push(newItem);
                 this.saveCartItems();
             }
         },
+
         removeFromCart(item) {
             const index = this.store.cartItems.indexOf(item);
             if (index !== -1) {
@@ -33,26 +51,48 @@ export default {
                 this.saveCartItems();
             }
         },
+
         saveCartItems() {
             localStorage.setItem("cartItems", JSON.stringify(this.store.cartItems));
             localStorage.setItem("restaurant_id", this.store.restaurant_id);
-            this.updateTotalPrice();
+            this.updateCartInfo();
         },
-        updateTotalPrice() {
-            let totalPrice = 0;
+
+        updateCartInfo() {
+            this.store.totalPrice = 0;
+            this.store.cartQuantity = 0;
+
             this.store.cartItems.forEach(item => {
-                totalPrice += parseFloat(item.price);
+                this.store.totalPrice += parseFloat(item.product.price * item.quantity);
+                this.store.cartQuantity += parseFloat(item.quantity);
             });
-            this.store.totalPrice = totalPrice;
-            localStorage.setItem("total_price", this.store.totalPrice);
+            
+            localStorage.setItem('total_price', this.store.totalPrice);
+            localStorage.setItem('quantity', this.store.cartQuantity);
         },
+
         emptyCart() {
             this.store.cartItems = [];
             this.saveCartItems();
         },
+
+        increaseQuantity(item) {
+            item.quantity++;
+            this.saveCartItems(); 
+        },
+
+        decreaseQuantity(item) {
+            item.quantity--;
+            if(item.quantity > 0) {
+                this.saveCartItems();
+            }
+            else {
+                this.removeFromCart(item);
+            }
+        }
     },
     components: {
-        AppPayment
+        AppPayment,
     }
 };
 </script>
@@ -63,14 +103,25 @@ export default {
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center"
                     v-for="item in store.cartItems">
-                    <span>
-                        {{ item.price }}€ - {{ item.name }}
-                    </span>
-                    <button class="btn btn-danger" @click="removeFromCart(item)"><i class="fa-solid fa-trash"></i></button>
+                    <div>
+                        <span>
+                             {{ item.product.name }} - {{ parseFloat(item.product.price).toFixed(2) }}€
+                        </span>
+                    </div>
+                    
+                    <div class="d-flex gap-3">
+                        <span class="d-flex align-items-center gap-2">
+                            <button class="btn btn-secondary" @click="decreaseQuantity(item)">-</button>
+                            {{ item.quantity }}
+                            <button class="btn btn-secondary" @click="increaseQuantity(item)">+</button>
+                        </span>
+                        
+                        <button class="btn btn-danger" @click="removeFromCart(item)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
                 </li>
             </ul>
 
-            <p>Totale: € {{ parseFloat(store.totalPrice).toFixed(2) }}</p>
+            <p class="text-center my-5">Totale: € {{ parseFloat(store.totalPrice).toFixed(2) }}</p>
 
             <button @click="emptyCart()" class="btn btn-primary">Svuota carrello</button>
         </div>

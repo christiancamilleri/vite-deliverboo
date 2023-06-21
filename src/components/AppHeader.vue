@@ -28,8 +28,8 @@ export default {
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
-                    <span v-show="store.cartItems.length" class="badge rounded-pill text-bg-danger">
-                        {{ store.cartItems.length }}
+                    <span v-show="store.cartQuantity" class="badge rounded-pill text-bg-danger">
+                        {{ store.cartQuantity }}
                     </span>
                 </div>
 
@@ -52,7 +52,7 @@ export default {
 
         </nav>
 
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas offcanvas-end w-50" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>

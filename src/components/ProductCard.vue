@@ -4,13 +4,30 @@ export default {
 
     data() {
         return {
-
+            quantityToAdd: 1,
         }
     },
 
     props: {
         product: Object,
     },
+
+    methods: {
+        increaseQuantity() {
+            this.quantityToAdd++;
+        },
+
+        decreaseQuantity() {
+            if(this.quantityToAdd > 0) {
+                this.quantityToAdd--;
+            }
+        },
+
+        addToCart() {
+            this.$emit('addToCart', { product: this.product, quantityToAdd: this.quantityToAdd });
+            this.quantityToAdd = 1;
+        }
+    }
 }
 </script>
 
@@ -27,8 +44,18 @@ export default {
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text">{{ product.description }}</p>
                     <p class="card-text"><small class="text-body-secondary">€ {{ product.price }}</small></p>
-                    <button @click="$emit('addToCart', product)" class="btn btn-primary"><i
-                            class="fa-solid fa-cart-shopping"></i></button>
+                    
+                    <div class="d-flex gap-3">
+                        <span class="d-flex align-items-center gap-2">
+                            <button class="btn btn-secondary" @click="decreaseQuantity()">-</button>
+                            {{ quantityToAdd }}
+                            <button class="btn btn-secondary" @click="increaseQuantity()">+</button>
+                        </span>
+
+                        <button @click="addToCart()" class="btn btn-primary">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
