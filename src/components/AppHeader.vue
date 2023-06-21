@@ -28,7 +28,7 @@ export default {
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
-                    <span v-show="store.cartQuantity" class="badge rounded-pill text-bg-danger">
+                    <span v-show="store.cartQuantity > 0" class="badge rounded-pill text-bg-danger">
                         {{ store.cartQuantity }}
                     </span>
                 </div>
