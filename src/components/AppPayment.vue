@@ -22,7 +22,7 @@ export default {
 
     methods: {
         payment() {
-            if(this.store.cartItems.length) {
+            if (this.store.cartItems.length) {
                 if (this.dropinInstance.isPaymentMethodRequestable()) {
                     this.paymentLoading = true;
 
@@ -38,10 +38,11 @@ export default {
                             this.paymentSuccess = res.data.success;
                             this.paymentMessage = res.data.message;
 
-                            this.emptyCart();
+                            if (this.paymentSuccess) {
+                                this.emptyCart();
+                            }
                             this.initPayment();
-
-                            this.paymentLoading= false;
+                            this.paymentLoading = false;
                         });
                     });
                 }
@@ -53,7 +54,7 @@ export default {
 
             axios.post('http://127.0.0.1:8000/api/braintree/token').then(res => {
                 let clientToken = res.data.clientToken;
-                
+
                 // Step two: create a dropin instance using that container (or a string
                 //   that functions as a query selector such as `#dropin-container`)
                 document.getElementById('dropin-container').innerHTML = '';
@@ -66,7 +67,7 @@ export default {
                 }, (error, dropinInstance) => {
                     // Use `dropinInstance` here
                     // Methods documented at https://braintree.github.io/braintree-web-drop-in/docs/current/Dropin.html
-                    if(error) {
+                    if (error) {
                         console.log(error.message);
                     }
                     this.dropinInstance = dropinInstance;
@@ -94,7 +95,7 @@ export default {
                 this.store.totalPrice += parseFloat(item.product.price * item.quantity);
                 this.store.cartQuantity += parseFloat(item.quantity);
             });
-            
+
             localStorage.setItem('total_price', this.store.totalPrice);
             localStorage.setItem('quantity', this.store.cartQuantity);
         },
