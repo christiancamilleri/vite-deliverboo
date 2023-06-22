@@ -49,7 +49,7 @@ export default {
                         duplicate.quantity += quantity;
                     }
                     else {
-                        console.log('nuovo');
+
                         const newItem = {
                             'product': item,
                             'quantity': quantity,
