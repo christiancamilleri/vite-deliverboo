@@ -70,8 +70,10 @@ export default {
         <div class="container py-3">
             <h1>Ristoranti</h1>
 
-            <form class="mb-3" action="" @submit.prevent="" @change="getRestaurants()">
-                <div id="checkboxes" class="d-flex gap-3">
+            <form class="border rounded p-3 mb-3" action="" @submit.prevent="" @change="getRestaurants()">
+                <h2>Filtra per tipologia</h2>
+
+                <div id="checkboxes" class="d-flex gap-3 mb-3">
                     <div v-for="typology in typologies" class="form-check">
                         <input v-model="typologiesChecked" class="form-check-input" type="checkbox" name="typologies"
                             :id="'typologies-' + typology.id" :value="typology.id">
@@ -81,7 +83,8 @@ export default {
                     </div>
                 </div>
 
-                <button @click="removeFilters()" class="btn btn-primary">Rimuovi filtri</button>
+                <button v-show="typologiesChecked.length" @click="removeFilters()" class="btn btn-primary">Rimuovi
+                    filtri</button>
             </form>
 
             <div v-if="isLoading == true" class="spinner-border" role="status">
