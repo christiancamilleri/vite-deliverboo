@@ -131,14 +131,14 @@ export default {
 
             <p class="text-center my-5">Totale: € {{ parseFloat(store.totalPrice).toFixed(2) }}</p>
 
-            <button @click="emptyCart()" class="btn btn-primary">Svuota carrello</button>
+            <button @click="emptyCart()" class="btn btn-outline-primary me-3">Svuota carrello</button>
+
+            <router-link class="btn btn-primary" :to="{ name: 'checkout' }">Procedi con l'ordine</router-link>
         </div>
 
         <div v-else class="alert alert-info mb-3" role="alert">
             Carrello vuoto.
         </div>
-
-        <AppPayment></AppPayment>
     </div>
 </template>
 

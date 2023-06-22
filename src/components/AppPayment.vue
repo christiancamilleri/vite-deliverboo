@@ -113,7 +113,7 @@ export default {
 
         <div v-show="!paymentLoading">
             <button v-show="paymentReady" @click="payment()" id="submit-button" class="btn btn-primary mb-3"
-                :class="store.cartItems.length ? '' : 'disabled'">Ordina</button>
+                :class="store.cartItems.length ? '' : 'disabled'">Effettua pagamento</button>
         </div>
 
         <div v-show="paymentLoading">

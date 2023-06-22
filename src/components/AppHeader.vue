@@ -59,6 +59,10 @@ export default {
             </div>
             <div class="offcanvas-body">
                 <AppCart></AppCart>
+
+                <hr>
+
+                <router-link class="btn btn-primary" :to="{ name: 'cart' }">Vai al carrello</router-link>
             </div>
         </div>
     </div>
