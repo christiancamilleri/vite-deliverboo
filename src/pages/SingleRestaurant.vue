@@ -41,19 +41,19 @@ export default {
         addToCart(object) {
             let item = object.product;
             let quantity = object.quantityToAdd;
-            
+
             if (this.store.cartItems.length != 0) {
                 if (this.store.restaurant_id == item['restaurant_id']) {
                     let duplicate = this.store.cartItems.find(element => element.product.id == item.id);
-                    if(duplicate) {
+                    if (duplicate) {
                         duplicate.quantity += quantity;
                     }
                     else {
                         console.log('nuovo');
-                            const newItem = {
-                                'product' : item,
-                                'quantity' : quantity,
-                            };
+                        const newItem = {
+                            'product': item,
+                            'quantity': quantity,
+                        };
                         this.store.cartItems.push(newItem);
                     }
                     this.saveCartItems();
@@ -64,10 +64,11 @@ export default {
 
             } else {
                 const newItem = {
-                        'product' : item,
-                        'quantity' : quantity,
-                    }
+                    'product': item,
+                    'quantity': quantity,
+                }
                 this.store.restaurant_id = item['restaurant_id'];
+                this.store.restaurantName = this.restaurant.name;
                 this.store.cartItems.push(newItem);
                 this.saveCartItems();
             }
@@ -76,6 +77,7 @@ export default {
         saveCartItems() {
             localStorage.setItem('cartItems', JSON.stringify(this.store.cartItems));
             localStorage.setItem('restaurant_id', this.store.restaurant_id);
+            localStorage.setItem('restaurantName', this.store.restaurantName);
             this.updateCartInfo();
         },
 
@@ -87,7 +89,7 @@ export default {
                 this.store.totalPrice += parseFloat(item.product.price * item.quantity);
                 this.store.cartQuantity += parseFloat(item.quantity);
             });
-            
+
             localStorage.setItem('total_price', this.store.totalPrice);
             localStorage.setItem('quantity', this.store.cartQuantity);
         }

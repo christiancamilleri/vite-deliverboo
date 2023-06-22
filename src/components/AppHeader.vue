@@ -40,7 +40,7 @@ export default {
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/">Sei un
+                            <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/" target="_blank">Sei un
                                 ristoratore?</a>
                         </li>
                     </ul>
