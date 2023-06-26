@@ -11,7 +11,7 @@ export default {
 
 <template>
     <div>
-        <footer class="text-center text-lg-start text-muted">
+        <footer class="my-footer text-center text-lg-start">
 
             <section class="d-flex justify-content-center justify-content-lg-between p-4">
 
@@ -134,4 +134,9 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+footer {
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    color: white;
+}
+</style>

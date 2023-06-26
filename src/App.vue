@@ -32,4 +32,10 @@ export default {
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+div {
+  background-image: url('/img/sfondo.JPG');
+  color: white;
+  background-size: cover;
+}
+</style>
