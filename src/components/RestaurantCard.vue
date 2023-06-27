@@ -29,7 +29,7 @@ export default {
         <div class="card-body d-flex flex-column justify-content-between">
             <h5 class="card-title my-restaurant-title">{{ restaurant.name }}</h5>
             <p class="card-text">
-                <span v-for="typology in restaurant.typologies" class="badge"
+                <span v-for="typology in restaurant.typologies" class="badge my-typology-badge"
                     :style="{ backgroundColor: typology.color }">{{ typology.name }}</span>
             </p>
             <router-link class="btn btn-primary justify-self-end"
@@ -41,7 +41,9 @@ export default {
 
 <style lang="scss" scoped>
 .my-restaurant-card {
+    border: 2px solid #8d1616;
     box-shadow: 6px 6px 5px rgba($color: #000000, $alpha: 0.5);
+    // box-shadow: 4px 4px 1px #8d1616;
 
     transition: transform .5s;
 
@@ -58,6 +60,10 @@ export default {
     .my-restaurant-title {
         font-weight: 600;
         text-shadow: 1px 1px rgba($color: #000000, $alpha: 0.5);
+    }
+
+    .my-typology-badge {
+        margin-right: 5px;
     }
 }
 </style>
