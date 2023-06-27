@@ -136,7 +136,7 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-    background-color: rgba($color: #000000, $alpha: 0.2);
+    background-color: rgba($color: #000000, $alpha: 0.6);
     color: white;
 }
 </style>

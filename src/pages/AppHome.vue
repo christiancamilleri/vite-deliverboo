@@ -71,7 +71,7 @@ export default {
             <div class="carousel-item active" data-bs-interval="10000">
                 <img src="/img/hamburger.jpg" class="d-block w- my-img" alt="">
                 <div class="info-container">
-                    <div class="carousel-caption d-none d-md-block info">
+                    <div class="carousel-caption d-none d-md-block info animate__animated animate__backInDown">
                         <h2>Il tuo piatto preferito direttamente a casa tua!</h2>
                         <p>La scelta migliore per un pasto facile e veloce.</p>
                     </div>
@@ -82,15 +82,15 @@ export default {
             </div>
             <div class="carousel-item" data-bs-interval="2000">
                 <img src="/img/sushi.jpg" class="d-block w- my-img" alt="...">
-                <div class="carousel-caption d-none d-md-block info">
-                    <h2>Ordina ciò che desideri, basta un click</h2>
+                <div class="carousel-caption d-none d-md-block info animate__animated animate__backInDown">
+                    <h2>La tua fame ha trovato il suo alleato. L'app che ti fa sentire un vero gourmet a domicilio!</h2>
                     <p>Provare per credere!</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="/img/pizza.jpg" class="d-block w- my-img" alt="...">
-                <div class="carousel-caption d-none d-md-block info">
-                    <h2>Alla scoperta del mondo un morso alla volta</h2>
+                <div class="carousel-caption d-none d-md-block info animate__animated animate__backInDown">
+                    <h2>Ordina, gusta, ripeti: l'app che porta il tuo cibo preferito a portata di tap!</h2>
                     <p>Tutto cio di cui hai bisogno te lo portiamo noi!</p>
                 </div>
             </div>
@@ -129,7 +129,7 @@ export default {
 
                 </div>
 
-                <button v-show="typologiesChecked.length" @click="removeFilters()" class="btn btn-primary">Rimuovi
+                <button v-show="typologiesChecked.length" @click="removeFilters()" class="btn btn-danger m-3">Rimuovi
                     filtri</button>
             </form>
 
@@ -163,5 +163,12 @@ export default {
     background-color: rgba($color: #000000, $alpha: 0.3);
 
     border-radius: 20px;
+}
+
+form {
+    label {
+
+        background-color: rgba($color: #000000, $alpha: 0.6);
+    }
 }
 </style>

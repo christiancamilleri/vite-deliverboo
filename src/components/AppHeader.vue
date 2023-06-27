@@ -16,7 +16,7 @@ export default {
 
 <template>
     <div>
-        <nav class="my-nav navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="my-nav navbar navbar-expand-lg bg-primary">
             <div class="container">
                 <router-link :to="{ name: 'home' }" class="navbar-brand" href="#"><img src="/img/deliveboo.png"
                         alt=""></router-link>
@@ -39,7 +39,7 @@ export default {
                     </ul>
                 </div>
                 <div>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                    <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
@@ -71,7 +71,5 @@ export default {
 </template>
 
 <style scoped lang="scss">
-.my-nav {
-    background-color: #740c0d;
-}
+.my-nav {}
 </style>
