@@ -1,11 +1,10 @@
 import { createApp } from 'vue';
-import './style.scss';
 import App from './App.vue';
-import '@fortawesome/fontawesome-free/css/all.css';
-import * as bootstrap from 'bootstrap';
 import { router } from './router';
+import './style.scss';
+import * as bootstrap from 'bootstrap';
+import './custom.scss';
+import '@fortawesome/fontawesome-free/css/all.css';
 import 'animate.css';
-
-
 
 createApp(App).use(router).mount('#app')
