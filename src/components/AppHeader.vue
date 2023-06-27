@@ -29,12 +29,13 @@ export default {
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <router-link :to="{ name: 'home' }" class="nav-link" aria-current="page">Home</router-link>
+                            <router-link :to="{ name: 'home' }" class="nav-link"
+                                aria-current="page"><b>Home</b></router-link>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/" target="_blank">Sei un
-                                ristoratore?</a>
+                            <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/" target="_blank"><b>Sei un
+                                    ristoratore?</b></a>
                         </li>
                     </ul>
                 </div>
@@ -71,5 +72,15 @@ export default {
 </template>
 
 <style scoped lang="scss">
-.my-nav {}
+.my-nav {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    box-shadow: 3px 3px 5px black;
+
+    b {
+        color: white;
+    }
+}
 </style>
