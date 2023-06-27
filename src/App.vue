@@ -34,8 +34,8 @@ export default {
 
 <style scoped lang="scss">
 div {
-  background-image: url('/img/sfondo.JPG');
+  background-image: url('/img/sfondo-4.JPG');
   color: white;
-  background-size: cover;
+  background-size: 30%;
 }
 </style>

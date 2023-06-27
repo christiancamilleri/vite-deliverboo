@@ -16,10 +16,10 @@ export default {
 
 <template>
     <div>
-        <nav class="my-nav navbar navbar-expand-lg bg-primary">
+        <nav class="my-nav navbar navbar-expand-lg">
+            <router-link :to="{ name: 'home' }" class="navbar-brand" href="#"><img src="/img/deliveboo.png"
+                    alt=""></router-link>
             <div class="container">
-                <router-link :to="{ name: 'home' }" class="navbar-brand" href="#"><img src="/img/deliveboo.png"
-                        alt=""></router-link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -71,5 +71,13 @@ export default {
 </template>
 
 <style scoped lang="scss">
-.my-nav {}
+.my-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    background-color: rgba($color: #8d1616, $alpha: 0.25);
+    box-shadow: 0px 5px 5px rgba($color: #000000, $alpha: 0.5);
+}
 </style>
