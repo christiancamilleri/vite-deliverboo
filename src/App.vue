@@ -38,7 +38,7 @@ div {
   background-image: url('/img/hambu2.png');
   // background-repeat: no-repeat;
   background-size: 20%;
-  background-color: #f47f7f;
+  // background-color: #f47f7f;
 
   color: white;
 }
