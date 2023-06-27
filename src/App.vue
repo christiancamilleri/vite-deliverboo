@@ -1,6 +1,7 @@
 <script>
 import AppHeader from './components/AppHeader.vue'
 import AppHome from './pages/AppHome.vue';
+import AppFooter from './components/AppFooter.vue';
 
 export default {
   name: 'App',
@@ -14,6 +15,7 @@ export default {
   components: {
     AppHeader,
     AppHome,
+    AppFooter,
   },
 }
 </script>
@@ -23,7 +25,17 @@ export default {
     <AppHeader></AppHeader>
 
     <router-view></router-view>
+
+    <AppFooter></AppFooter>
+
+
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+div {
+  background-image: url('/img/sfondo.JPG');
+  color: white;
+  background-size: cover;
+}
+</style>

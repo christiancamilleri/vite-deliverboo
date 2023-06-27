@@ -6,32 +6,25 @@ export default {
     data() {
         return {
             store,
+            index: 0,
         };
     },
 
-    components: { AppCart }
+    components: { AppCart },
 }
 </script>
 
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="my-nav navbar navbar-expand-lg bg-primary">
             <div class="container">
-                <router-link :to="{ name: 'home' }" class="navbar-brand" href="#">DeliveBoo</router-link>
+                <router-link :to="{ name: 'home' }" class="navbar-brand" href="#"><img src="/img/deliveboo.png"
+                        alt=""></router-link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                    <span v-show="store.cartQuantity > 0" class="badge rounded-pill text-bg-danger">
-                        {{ store.cartQuantity }}
-                    </span>
-                </div>
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
@@ -44,6 +37,15 @@ export default {
                                 ristoratore?</a>
                         </li>
                     </ul>
+                </div>
+                <div>
+                    <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                    <span v-show="store.cartQuantity > 0" class="badge rounded-pill text-bg-danger">
+                        {{ store.cartQuantity }}
+                    </span>
                 </div>
             </div>
             <div>
@@ -68,4 +70,6 @@ export default {
     </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.my-nav {}
+</style>

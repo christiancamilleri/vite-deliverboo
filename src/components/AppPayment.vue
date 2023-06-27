@@ -127,41 +127,45 @@ export default {
 <template>
     <form @submit.prevent="payment()" id="payment">
         <div class="input-group mb-3">
-            <span class="input-group-text" id="name-addon">Nome</span>
-            <input v-model="payload.user.name" type="text" class="form-control" :class="errors && errors['user.name'] ? 'is-invalid' : ''" aria-describedby="name-addon">
+            <span class="input-group-text" id="name-addon">Nome *</span>
+            <input v-model="payload.user.name" type="text" class="form-control"
+                :class="errors && errors['user.name'] ? 'is-invalid' : ''" aria-describedby="name-addon">
             <div v-if="errors && errors['user.name']" class="invalid-feedback">
                 <em> {{ errors['user.name'][0] }} </em>
             </div>
         </div>
 
         <div class="input-group mb-3">
-            <span class="input-group-text" id="email-addon">Indirizzo E-mail</span>
-            <input v-model="payload.user.email" :class="errors && errors['user.email'] ? 'is-invalid' : ''" type="email" class="form-control" aria-describedby="email-addon">
+            <span class="input-group-text" id="email-addon">Indirizzo E-mail *</span>
+            <input v-model="payload.user.email" :class="errors && errors['user.email'] ? 'is-invalid' : ''" type="email"
+                class="form-control" aria-describedby="email-addon">
             <div v-if="errors && errors['user.email']" class="invalid-feedback">
                 <em> {{ errors['user.email'][0] }} </em>
             </div>
         </div>
 
         <div class="input-group mb-3">
-            <span class="input-group-text" id="postal_code-addon">CAP</span>
-            <input v-model="payload.user.postal_code" :class="errors && errors['user.postal_code'] ? 'is-invalid' : ''" type="text" class="form-control"
-                aria-describedby="postal_code-addon" pattern="[0-9]{5}" maxlength="5">
+            <span class="input-group-text" id="postal_code-addon">CAP *</span>
+            <input v-model="payload.user.postal_code" :class="errors && errors['user.postal_code'] ? 'is-invalid' : ''"
+                type="text" class="form-control" aria-describedby="postal_code-addon" pattern="[0-9]{5}" maxlength="5">
             <div v-if="errors && errors['user.postal_code']" class="invalid-feedback">
                 <em> {{ errors['user.postal_code'][0] }} </em>
             </div>
         </div>
 
         <div class="input-group mb-3">
-            <span class="input-group-text" id="address-addon">Indirizzo</span>
-            <input v-model="payload.user.address" :class="errors && errors['user.address'] ? 'is-invalid' : ''" type="address" class="form-control" aria-describedby="address-addon">
+            <span class="input-group-text" id="address-addon">Indirizzo *</span>
+            <input v-model="payload.user.address" :class="errors && errors['user.address'] ? 'is-invalid' : ''"
+                type="address" class="form-control" aria-describedby="address-addon">
             <div v-if="errors && errors['user.address']" class="invalid-feedback">
                 <em> {{ errors['user.address'][0] }} </em>
             </div>
         </div>
 
         <div class="input-group mb-3">
-            <span class="input-group-text" id="phone-addon">Telefono</span>
-            <input v-model="payload.user.phone" :class="errors && errors['user.phone'] ? 'is-invalid' : ''" type="phone" class="form-control" aria-describedby="phone-addon">
+            <span class="input-group-text" id="phone-addon">Telefono *</span>
+            <input v-model="payload.user.phone" :class="errors && errors['user.phone'] ? 'is-invalid' : ''" type="phone"
+                class="form-control" aria-describedby="phone-addon">
             <div v-if="errors && errors['user.phone']" class="invalid-feedback">
                 <em> {{ errors['user.phone'][0] }} </em>
             </div>
@@ -172,8 +176,8 @@ export default {
             <textarea v-model="payload.user.optional_info" class="form-control" name="optional-info" id="optional-info"
                 aria-describedby="optional-info-addon"></textarea>
         </div>
-        
- 
+
+
         <div v-show="paymentReady" id="dropin-container"></div>
 
         <div v-show="!paymentLoading">
