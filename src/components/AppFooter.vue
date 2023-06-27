@@ -11,7 +11,7 @@ export default {
 
 <template>
     <div>
-        <footer class="my-footer text-center text-lg-start">
+        <footer class="my-footer text-center text-lg-start bg-primary">
 
             <section class="d-flex justify-content-center justify-content-lg-between p-4">
 

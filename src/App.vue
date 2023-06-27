@@ -34,12 +34,8 @@ export default {
 
 <style scoped lang="scss">
 div {
-  // background-image: url('/img/sushi.png');
-  background-image: url('/img/hambu2.png');
-  // background-repeat: no-repeat;
-  background-size: 20%;
-  // background-color: #f47f7f;
-
+  background-image: url('/img/sfondo.JPG');
   color: white;
+  background-size: 30%;
 }
 </style>
