@@ -16,7 +16,7 @@ export default {
 
 <template>
     <div>
-        <nav class="my-nav navbar navbar-expand-lg bg-primary">
+        <nav class="navbar navbar-expand-lg bg-primary">
             <div class="container">
                 <router-link :to="{ name: 'home' }" class="navbar-brand" href="#"><img src="/img/deliveboo.png"
                         alt=""></router-link>
@@ -70,6 +70,4 @@ export default {
     </div>
 </template>
 
-<style scoped lang="scss">
-.my-nav {}
-</style>
+<style scoped lang="scss"></style>
