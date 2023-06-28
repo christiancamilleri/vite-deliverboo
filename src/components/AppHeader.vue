@@ -74,12 +74,12 @@ export default {
                 <h5 class="offcanvas-title text-light" id="offcanvasRightLabel">Carrello</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
+            <div class="offcanvas-body d-flex flex-column">
                 <AppCart></AppCart>
 
                 <hr>
 
-                <router-link class="btn btn-outline-warning text-light" :to="{ name: 'cart' }">Vai al
+                <router-link class="btn btn-warning text-primary fw-bold" :to="{ name: 'cart' }">Vai al
                     carrello</router-link>
             </div>
         </div>

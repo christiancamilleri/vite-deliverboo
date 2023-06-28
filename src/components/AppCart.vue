@@ -140,9 +140,9 @@ export default {
 
             <p class=" my-5">Totale: € {{ parseFloat(store.totalPrice).toFixed(2) }}</p>
             <div class="d-flex justify-content-between gap-3">
-                <button @click="emptyCart()" class="btn btn-outline-warning text-light">Svuota carrello</button>
+                <button @click="emptyCart()" class="btn btn-primary border-warning text-light">Svuota carrello</button>
 
-                <router-link class="btn btn-outline-warning text-light" :to="{ name: 'checkout' }">Procedi con
+                <router-link class="btn btn-primary border-warning text-light" :to="{ name: 'checkout' }">Procedi con
                     l'ordine</router-link>
             </div>
 
