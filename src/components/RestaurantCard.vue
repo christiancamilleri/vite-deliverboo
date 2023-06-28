@@ -32,43 +32,12 @@ export default {
 </script>
 
 <template>
-
-    <div class="card h-100" >
-        <div class="cont-img">
-            <img  :src="cover" class="card-img-top" alt="...">
+    <div class="card h-100">
+        <div id="cover-img-wrapper">
+            <img :src="cover" class="card-img-top" alt="cover-img">
         </div>
-    <div class="card-body d-flex flex-column justify-content-between">
-        <img :src="img" class="card-img-top my-img" alt="restaurant-img">
-        <h5 class="card-title">{{ restaurant.name }}</h5>
-            <p>
-                <span v-for="typology in restaurant.typologies" class="badge me-1 "
-                    :style="{ backgroundColor: typology.color }">{{ typology.name }}</span>
-            </p>
-            <router-link class="btn btn-primary justify-self-end"
-                :to="{ name: 'restaurants.show', params: { slug: restaurant.slug } }">Mostra
-                dettagli</router-link>
-    </div>
-    </div>
 
-
-
-
-    <!-- <div class="card h-100 my-restaurant-card">
-        <img :src="img" class="card-img-top" alt="restaurant-img">
         <div class="card-body d-flex flex-column justify-content-between">
-            <h5 class="card-title my-restaurant-title">{{ restaurant.name }}</h5>
-            <p class="card-text">
-                <span v-for="typology in restaurant.typologies" class="badge my-typology-badge"
-                    :style="{ backgroundColor: typology.color }">{{ typology.name }}</span>
-            </p>
-            <router-link class="btn btn-primary justify-self-end"
-                :to="{ name: 'restaurants.show', params: { slug: restaurant.slug } }">Mostra
-                dettagli</router-link>
-        </div>
-    </div> -->
-    <!-- <div class="card my-restaurant-card" style="width: 18rem;">
-        <img :src="cover" class="card-img-top my-cover" alt="restaurant-jumbo">
-        <div class="card-body my-card-body">
             <img :src="img" class="card-img-top my-img" alt="restaurant-img">
             <h5 class="card-title">{{ restaurant.name }}</h5>
             <p>
@@ -78,49 +47,32 @@ export default {
             <router-link class="btn btn-primary justify-self-end"
                 :to="{ name: 'restaurants.show', params: { slug: restaurant.slug } }">Mostra
                 dettagli</router-link>
-
         </div>
-    </div> -->
+    </div>
 </template>
 
 <style lang="scss" scoped>
-// .my-restaurant-card {
+.card-body {
+    position: relative;
+    background-color: rgba($color: #ffffff, $alpha: 0.7);
+}
 
-    // text-align: center;
-    // border-radius: 15px;
-    // height: 350px;
-    // background-color: rgba($color: #ffffff, $alpha: 0.6);
+.my-img {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    transform: translateY(-90%);
+    border-radius: 50%;
+    width: 30%;
+    box-shadow: 0px 0px 8px black;
 
-    // .my-cover {
-    //     object-fit: cover;
-    //     object-position: center;
-    //     border-radius: 15px 15px 0px 0px;
-    // }
+    transition: 0.4s;
+}
 
-    // .my-card-body {
-    //     position: relative;
-    //     padding-top: 38px;
-
-    .card-body {
-        position: relative;
+#cover-img-wrapper {
+    img {
+        height: 200px;
+        object-fit: cover;
     }
-
-        .my-img {
-            position: absolute;
-            top: 0;
-            left: 10px;
-            transform: translateY(-90%);
-            border-radius: 50%;
-            width: 30%;
-            // height: 300px;
-            box-shadow: 0px 0px 8px black;
-
-            transition: 0.4s;
-        }
-    // }
-
-    // &:hover .my-img {
-    //     transform: translateY(50%) scale(1.2);
-    // }
-// }
+}
 </style>

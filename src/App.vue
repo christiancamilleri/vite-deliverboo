@@ -24,7 +24,9 @@ export default {
   <div>
     <AppHeader></AppHeader>
 
-    <router-view></router-view>
+    <main>
+      <router-view></router-view>
+    </main>
 
     <AppFooter></AppFooter>
   </div>

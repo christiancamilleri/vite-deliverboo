@@ -19,44 +19,48 @@ export default {
 <template>
     <header>
         <nav class="my-nav navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <div class="w-100 row align-items-center">
-                    <div class="col-6 col-lg-2">
+            <div class="container h-100">
+                <div class="w-100 h-100 row align-items-center">
+                    <div class="col-10 h-100 d-flex align-items-center">
                         <router-link :to="{ name: 'home' }" class="navbar-brand" href="#">
-                            <img class="w-100" src="/img/deliveboo.png" alt="">
+                            <img src="/img/deliveboo.png" alt="">
                         </router-link>
+
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav text-center">
+                                <li class="nav-item">
+                                    <router-link :to="{ name: 'home' }" class="nav-link"
+                                        aria-current="page"><b>Home</b></router-link>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/"
+                                        target="_blank"><b>Sei
+                                            un
+                                            ristoratore?</b></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="col-6 col-lg-4 order-lg-2 d-flex justify-content-end align-items-center gap-2 p-0">
+                    <div class="col-2 d-flex justify-content-end align-items-center gap-2 p-0">
                         <div>
-                            <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas"
+                            <button type="button" class="btn btn-warning position-relative" data-bs-toggle="offcanvas"
                                 data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                                 <i class="fa-solid fa-cart-shopping"></i>
+                                <span v-show="store.cartQuantity > 0"
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {{ store.cartQuantity }}
+                                </span>
                             </button>
-                            <span v-show="store.cartQuantity > 0" class="badge rounded-pill text-bg-danger">
-                                {{ store.cartQuantity }}
-                            </span>
                         </div>
                         <div>
-                            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                                aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                         </div>
-                    </div>
-
-                    <div class="col-12 col-lg-4 order-lg-1 collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav text-center">
-                            <li class="nav-item">
-                                <router-link :to="{ name: 'home' }" class="nav-link"
-                                    aria-current="page"><b>Home</b></router-link>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/" target="_blank"><b>Sei un
-                                        ristoratore?</b></a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -73,6 +77,8 @@ export default {
 
                 <hr>
 
+                <router-link class="btn btn-outline-warning text-light" :to="{ name: 'cart' }">Vai al
+                    carrello</router-link>
             </div>
         </div>
     </header>
@@ -81,6 +87,7 @@ export default {
 <style lang="scss" scoped>
 .my-nav {
     position: fixed;
+    height: 80px;
     width: 100%;
     z-index: 2;
     background-color: rgba($color: #000000, $alpha: 0.3);
@@ -104,7 +111,5 @@ export default {
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: 60%;
-
-
 }
 </style>

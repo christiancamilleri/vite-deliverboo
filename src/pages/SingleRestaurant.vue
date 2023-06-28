@@ -99,58 +99,74 @@ export default {
 </script>
 
 <template>
-    <main>
-        <div id="images-wrapper">
-            <img v-if="restaurant.cover" class="my-img" :src="'http://127.0.0.1:8000/storage/' + restaurant.cover" alt="">
-            <img v-if="restaurant.logo"  class="my-logo position-absolute top-100 start-50 rounded-circle" :src="'http://127.0.0.1:8000/storage/' + restaurant.logo" alt="">
-        </div>
+    <div id="images-wrapper">
+        <img v-if="restaurant.cover" class="my-img" :src="'http://127.0.0.1:8000/storage/' + restaurant.cover" alt="">
+        <img v-if="restaurant.logo" class="my-logo position-absolute top-100 start-50 rounded-circle"
+            :src="'http://127.0.0.1:8000/storage/' + restaurant.logo" alt="">
+    </div>
 
-        <div class="container my-menu">
-            <div v-if="restaurantFound">
-                <h1 class="text-center">{{ restaurant.name }}</h1>
-                <hr>
-                <div class="row">
-                    <div class="col-12 col-xl-6" v-for="product in restaurant.products">
-                        <ProductCard :product="product" @addToCart="addToCart"></ProductCard>
-                    </div>
+    <div class="container my-menu">
+        <div v-if="restaurantFound">
+            <h1 class="text-center">{{ restaurant.name }}</h1>
+            <hr>
+            <div class="row">
+                <div class="col-12 col-xl-6" v-for="product in restaurant.products">
+                    <ProductCard :product="product" @addToCart="addToCart"></ProductCard>
                 </div>
             </div>
-
-            <div v-else class="alert alert-info mb-3" role="alert">
-                Ristorante non trovato.
-            </div>
         </div>
 
-    </main>
+        <div v-else class="alert alert-info mb-3" role="alert">
+            Ristorante non trovato.
+        </div>
+    </div>
 </template>
 
 <style lang="scss" scoped>
-main {
+#images-wrapper {
+    height: 400px;
+    position: relative;
 
-    #images-wrapper {
-        height: 400px;
-        position: relative;
+    .my-img {
+        width: 100%;
+        height: 100%;
 
-        .my-img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-        }
-
-        .my-logo {
-            height: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-
-            transform: translate(-50%, -70%);
-            box-shadow: 0px 0px 10px black;
-        }
-
+        object-fit: cover;
     }
 
-    .my-menu {
-        padding-top: 9em;
+    .my-logo {
+        height: 50%;
+        aspect-ratio: 1;
+        object-fit: cover;
+
+        transform: translate(-50%, -70%);
+        box-shadow: 0px 0px 10px black;
+    }
+
+}
+
+.my-menu {
+    padding-top: 9em;
+}
+
+
+@media screen and (min-width: 768px) {
+    main {
+        #images-wrapper {
+            .my-logo {
+                height: 80%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    main {
+        #images-wrapper {
+            .my-logo {
+                height: 100%;
+            }
+        }
     }
 }
 </style>

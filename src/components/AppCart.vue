@@ -103,7 +103,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <main>
         <div class="mb-3 text-light my-container" v-if="store.cartItems.length">
             <h1>{{ store?.restaurantName }}</h1>
 
@@ -123,9 +123,13 @@ export default {
 
                     <div class="d-flex gap-3">
                         <span class="d-flex align-items-center gap-2">
-                            <i @click="decreaseQuantity(item)" class="fa-solid fa-minus fw-bold"></i>
+                            <button class="btn">
+                                <i @click="decreaseQuantity(item)" class="fa-solid fa-minus fw-bold"></i>
+                            </button>
                             {{ item.quantity }}
-                            <i @click="increaseQuantity(item)" class="fa-solid fa-plus fw-bold"></i>
+                            <button class="btn">
+                                <i @click="increaseQuantity(item)" class="fa-solid fa-plus fw-bold"></i>
+                            </button>
                         </span>
 
                         <button class="btn btn-danger" @click="removeFromCart(item)"><i
@@ -136,9 +140,7 @@ export default {
 
             <p class=" my-5">Totale: € {{ parseFloat(store.totalPrice).toFixed(2) }}</p>
             <div class="d-flex justify-content-between gap-3">
-                <button @click="emptyCart()" class="btn btn-outline-warning text-light me-3">Svuota carrello</button>
-                <router-link class="btn btn-outline-warning text-light" :to="{ name: 'cart' }">Vai al
-                    carrello</router-link>
+                <button @click="emptyCart()" class="btn btn-outline-warning text-light">Svuota carrello</button>
 
                 <router-link class="btn btn-outline-warning text-light" :to="{ name: 'checkout' }">Procedi con
                     l'ordine</router-link>
@@ -150,7 +152,7 @@ export default {
         <div v-else class="alert alert-info mb-3" role="alert">
             Carrello vuoto.
         </div>
-    </div>
+    </main>
 </template>
 
 <style scoped lang="scss">

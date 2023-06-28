@@ -15,9 +15,13 @@ export default {
 </script>
 
 <template>
-    <div class="container py-5">
+    <div id="cart-wrapper" class="container">
         <AppCart></AppCart>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#cart-wrapper {
+    padding-top: 100px;
+}
+</style>
