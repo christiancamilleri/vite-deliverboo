@@ -32,14 +32,14 @@ export default {
 </script>
 
 <template>
-    <div class="card h-100">
+    <div class="card h-100 my-card">
         <div id="cover-img-wrapper">
             <img :src="cover" class="card-img-top" alt="cover-img">
         </div>
 
         <div class="card-body d-flex flex-column justify-content-between">
             <img :src="img" class="card-img-top my-img" alt="restaurant-img">
-            <h5 class="card-title">{{ restaurant.name }}</h5>
+            <h3 class="card-title text-center py-3">{{ restaurant.name }}</h3>
             <p>
                 <span v-for="typology in restaurant.typologies" class="badge me-1 "
                     :style="{ backgroundColor: typology.color }">{{ typology.name }}</span>
@@ -52,27 +52,38 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.card-body {
-    position: relative;
-    background-color: rgba($color: #ffffff, $alpha: 0.7);
-}
+.my-card {
 
-.my-img {
-    height: 100px;
-    width: auto;
-    position: absolute;
-    top: 0;
-    left: 10px;
-    transform: translateY(-90%);
-    border-radius: 50%;
-    box-shadow: 0px 0px 8px black;
-    transition: 0.4s;
-}
+    background-color: rgba($color: #ffffff, $alpha: 0.5);
+    border-radius: 20px;
 
-#cover-img-wrapper {
-    img {
-        height: 200px;
-        object-fit: cover;
+    &:hover .my-img {
+        transform: translateY(-80%) scale(1.1);
+    }
+
+    .card-body {
+        position: relative;
+    }
+
+    .my-img {
+        height: 100px;
+        width: auto;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        transform: translateY(-80%);
+        // border-radius: 50%;
+        box-shadow: 0px 0px 8px black;
+        transition: 0.4s;
+        border-radius: 10px;
+    }
+
+    #cover-img-wrapper {
+        img {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px 20px 0px 0px;
+        }
     }
 }
 </style>

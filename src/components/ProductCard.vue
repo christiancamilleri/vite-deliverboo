@@ -46,7 +46,7 @@ export default {
                     alt="Product photo">
             </div>
             <div class="col-9 d-flex align-items-center">
-                <div class="card-body p-0">
+                <div class="card-body px-5">
                     <h6 class="card-title">{{ product.name }}</h6>
                     <small class="card-text">€ {{ product.price }}</small>
                 </div>
@@ -55,11 +55,11 @@ export default {
     </div>
 
     <!-- Modal -->
-    <div class="modal fade text-dark" :id="'modal-' + product.id" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade text-dark " :id="'modal-' + product.id" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
+        <div class="modal-dialog modal-dialog-centered  ">
+            <div class="modal-content  my-modal">
+                <div class="modal-header prova">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">{{ product.name }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -67,7 +67,7 @@ export default {
                     <img class="w-100 rounded-circle p-3"
                         :src="product.photo ? 'http://127.0.0.1:8000/storage/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
                         alt="">
-                    <div class="card-text text-center p-2">{{ product.description }}</div>
+                    <div class="card-text text-center p-2 cart-item">{{ product.description }}</div>
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
                     <div class="card-text"><strong>€{{ product.price }} </strong></div>
@@ -91,7 +91,21 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-    height: 80px;
+    height: 120px;
     background-color: rgba($color: #ffffff, $alpha: 0.7);
+}
+
+
+
+.cart-item {
+    background-color: rgba($color: #ffc109, $alpha: 1.0);
+    color: #740c0d;
+    font-weight: 600;
+    border: 2px solid #8d1616;
+    border-radius: 40px;
+    margin-bottom: 10px;
+    padding: 20px;
+
+
 }
 </style>

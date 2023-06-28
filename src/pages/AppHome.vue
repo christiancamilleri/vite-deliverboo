@@ -156,8 +156,8 @@ export default {
                             class="btn-check form-check-input" :id="'typologies-' + typology.id" :value="typology.id">
                         <label class="btn btn-outline-danger d-flex flex-column align-items-center"
                             :for="'typologies-' + typology.id">
-                            <img style=" width: 80px; " :src="typology.img" alt="">
-                            <span>{{ typology.name }}</span>
+                            <img class="w-80" :src="typology.img" alt="">
+                            <span class="text-shadow"><b>{{ typology.name }}</b></span>
                         </label>
                     </div>
                 </div>

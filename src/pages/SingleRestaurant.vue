@@ -95,14 +95,30 @@ export default {
             localStorage.setItem('quantity', this.store.cartQuantity);
         }
     },
+    computed: {
+        img() {
+            if (this.restaurant.logo) {
+                return 'http://127.0.0.1:8000/' + 'storage/' + this.restaurant.logo;
+            } else {
+                return '/img/no-logo.jpg';
+            }
+        },
+
+        cover() {
+            if (this.restaurant.cover) {
+                return 'http://127.0.0.1:8000/' + 'storage/' + this.restaurant.cover;
+            } else {
+                return '/img/no-cover.jpg';
+            }
+        }
+    },
 }
 </script>
 
 <template>
     <div id="images-wrapper">
-        <img v-if="restaurant.cover" class="my-img" :src="'http://127.0.0.1:8000/storage/' + restaurant.cover" alt="">
-        <img v-if="restaurant.logo" class="my-logo position-absolute top-100 start-50 rounded-circle"
-            :src="'http://127.0.0.1:8000/storage/' + restaurant.logo" alt="">
+        <img class="my-img" :src="cover" alt="">
+        <img class="my-logo position-absolute top-100 start-50 rounded-circle" :src="img" alt="">
     </div>
 
     <div class="container my-menu">
@@ -135,7 +151,7 @@ export default {
     }
 
     .my-logo {
-        height: 50%;
+
         aspect-ratio: 1;
         object-fit: cover;
 
