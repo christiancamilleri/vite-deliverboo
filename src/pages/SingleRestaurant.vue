@@ -110,7 +110,7 @@ export default {
             <h1 class="text-center">{{ restaurant.name }}</h1>
             <hr>
             <div class="row">
-                <div class="col-12 col-xl-6" v-for="product in restaurant.products">
+                <div class="col-12 col-md-6 col-lg-4" v-for="product in restaurant.products">
                     <ProductCard :product="product" @addToCart="addToCart"></ProductCard>
                 </div>
             </div>
@@ -146,7 +146,7 @@ export default {
 }
 
 .my-menu {
-    padding-top: 9em;
+    padding: 150px 0;
 }
 
 

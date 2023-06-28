@@ -46,15 +46,6 @@ export default {
             isLoading: false,
             typologiesChecked: [],
             logo: false,
-            // typologiesIcons: [
-            //     '/img/chinese.webp',
-            //     '/img/thai.webp',
-            //     '/img/messicano.webp',
-            //     '/img/burger.webp',
-            //     '/img/sushi.webp',
-            //     '/img/pizza.webp'
-            // ]
-
         }
     },
 
@@ -151,9 +142,9 @@ export default {
         </button>
     </div>
 
-    <div class="container py-3">
-        <form class="p-3" action="" @submit.prevent="" @change="getRestaurants()">
-            <h2 class="text-center">Scegli tra le tue categorie preferite</h2>
+    <div class="container py-5">
+        <form class="p-5" action="" @submit.prevent="" @change="getRestaurants()">
+            <h2 class="text-center pb-4 text-shadow">Scegli tra le tue categorie preferite</h2>
 
             <div class="row g-3 animate__animated animate__flip">
                 <div v-for="typology in typologiesObject" class="my-typology btn-group form-check col-6 col-md-4 col-lg-2"
@@ -175,8 +166,8 @@ export default {
             </div>
         </form>
 
-        <h1>Ristoranti</h1>
-        <h6>Dai un'occhiata alla nostra selezione</h6>
+        <h1 class="text-center text-shadow">Ristoranti</h1>
+        <h4 class="text-center pb-4 text-shadow">Dai un'occhiata alla nostra selezione</h4>
 
         <div v-if="isLoading == true" class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -258,38 +249,40 @@ export default {
         </div>
     </div>
 
-    <div class="container p-4">
+    <section class="my-bg">
+        <div class="container py-5">
+            <div class="row justify-content-between align-items-center">
 
-        <section class="row justify-content-between align-items-center">
+                <div class="col-12 col-md-4 section-left text-shadow">
+                    La nostra app offre un servizio di consegna di cibo con un'impareggiabile efficienza. Grazie alla nostra
+                    piattaforma intuitiva e facile da usare, puoi ordinare i tuoi pasti preferiti con pochi semplici clic.
+                    Il nostro sistema di gestione degli ordini è progettato per ottimizzare i tempi di preparazione e
+                    consegna, garantendo che il cibo arrivi fresco e pronto da gustare. Con il nostro team dedicato di
+                    corrieri altamente affidabili e ben addestrati, puoi contare su di noi per offrirti un servizio veloce
+                    ed efficiente ogni volta che ordini.
+                </div>
+                <img @click="goLogo()" :class="logo ? 'animate__animated animate__bounceOutRight' : ''"
+                    class="col-12 col-md-4 img-fluid logo p-5" src="/img/logo-primary.png" alt="">
+                <div class="col-12 col-md-4 section-right text-shadow">
+                    La velocità è fondamentale quando si tratta di servizi di consegna di cibo, e siamo fieri di offrire la
+                    massima velocità possibile ai nostri clienti. Con la nostra app, puoi goderti un'esperienza di consegna
+                    rapida e senza problemi. I nostri corrieri sono attentamente selezionati e utilizzano percorsi
+                    ottimizzati per raggiungere il tuo indirizzo nel minor tempo possibile. Inoltre, lavoriamo a stretto
+                    contatto con i nostri partner ristoranti per garantire che i tuoi ordini vengano preparati e consegnati
+                    in modo tempestivo. La nostra priorità assoluta è soddisfare le tue aspettative di velocità, portandoti
+                    il tuo cibo preferito in modo rapido e senza intoppi.
+                </div>
 
-            <div class="col-12 col-md-4 section-left">
-                La nostra app offre un servizio di consegna di cibo con un'impareggiabile efficienza. Grazie alla nostra
-                piattaforma intuitiva e facile da usare, puoi ordinare i tuoi pasti preferiti con pochi semplici clic.
-                Il nostro sistema di gestione degli ordini è progettato per ottimizzare i tempi di preparazione e
-                consegna, garantendo che il cibo arrivi fresco e pronto da gustare. Con il nostro team dedicato di
-                corrieri altamente affidabili e ben addestrati, puoi contare su di noi per offrirti un servizio veloce
-                ed efficiente ogni volta che ordini.
             </div>
-            <img @click="goLogo()" :class="logo ? 'animate__animated animate__bounceOutRight' : ''"
-                class="col-12 col-md-4 img-fluid logo p-5" src="/img/logoR3.png" alt="">
-            <div class="col-12 col-md-4 section-right">
-                La velocità è fondamentale quando si tratta di servizi di consegna di cibo, e siamo fieri di offrire la
-                massima velocità possibile ai nostri clienti. Con la nostra app, puoi goderti un'esperienza di consegna
-                rapida e senza problemi. I nostri corrieri sono attentamente selezionati e utilizzano percorsi
-                ottimizzati per raggiungere il tuo indirizzo nel minor tempo possibile. Inoltre, lavoriamo a stretto
-                contatto con i nostri partner ristoranti per garantire che i tuoi ordini vengano preparati e consegnati
-                in modo tempestivo. La nostra priorità assoluta è soddisfare le tue aspettative di velocità, portandoti
-                il tuo cibo preferito in modo rapido e senza intoppi.
-            </div>
+        </div>
 
-        </section>
-    </div>
+    </section>
 </template>
 
 <style lang="scss" scoped>
 .my-img {
     width: 100%;
-    height: 400px;
+    height: 500px;
 
     object-fit: cover;
 }
@@ -311,29 +304,7 @@ form {
     background-color: rgb(196, 169, 169);
 }
 
-// .my-container-restaurant {
-//     margin-top: 110px;
-// }
-
-// .my-section {
-
-//     background-color: black;
-
-//     .section-left {
-//         background-color: rgba($color: #740c0d, $alpha: 0.5);
-//         border-radius: 10px;
-
-//     }
-
-// .logo {
-//     width: 25%;
-
-// }
-
-//     .section-right {
-//         background-color: rgba($color: #740c0d, $alpha: 0.5);
-//         border-radius: 10px;
-//     }
-
-// }
+.my-bg {
+    background-color: #00000073;
+}
 </style>

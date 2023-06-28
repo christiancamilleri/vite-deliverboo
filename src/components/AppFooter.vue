@@ -112,7 +112,7 @@ export default {
                             <p><i class="fas fa-home me-3"></i> Milano, MI 20123</p>
                             <p>
                                 <i class="fas fa-envelope me-3"></i>
-                                deliveboo.team6@gmail.com
+                                info@deliveboo.com
                             </p>
                             <p><i class="fas fa-phone me-3"></i> + 39 123 25 36</p>
                             <p><i class="fas fa-print me-3"></i> + 39 234 567 89</p>

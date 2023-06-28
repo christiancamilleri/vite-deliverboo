@@ -13,6 +13,7 @@ export default {
     components: {
         AppCart
     },
+
 }
 </script>
 
@@ -22,19 +23,20 @@ export default {
             <div class="container h-100">
                 <div class="w-100 h-100 row align-items-center">
                     <div class="col-10 h-100 d-flex align-items-center">
-                        <router-link :to="{ name: 'home' }" class="navbar-brand" href="#">
-                            <img src="/img/deliveboo.png" alt="">
+                        <router-link :to="{ name: 'home' }" class="navbar-brand h-100" href="#">
+                            <img class="img-grande h-100" src="/img/deliveboo.png" alt="">
+                            <img class="img-logo h-100" src="/img/logo-primary.png" alt="">
                         </router-link>
 
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav text-center">
                                 <li class="nav-item">
-                                    <router-link :to="{ name: 'home' }" class="nav-link"
+                                    <router-link :to="{ name: 'home' }" class="nav-link text-shadow"
                                         aria-current="page"><b>Home</b></router-link>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/"
+                                    <a class="nav-link text-shadow" aria-current="page" href="http://127.0.0.1:8000/"
                                         target="_blank"><b>Sei
                                             un
                                             ristoratore?</b></a>
@@ -45,8 +47,8 @@ export default {
 
                     <div class="col-2 d-flex justify-content-end align-items-center gap-2 p-0">
                         <div>
-                            <button type="button" class="btn btn-warning position-relative" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <button type="button" class="btn btn-warning position-relative text-light"
+                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 <span v-show="store.cartQuantity > 0"
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -96,7 +98,15 @@ export default {
     b {
         color: white;
         font-size: larger;
-        text-shadow: 2px 2px #000000;
+
+    }
+
+    .img-grande {
+        display: none;
+    }
+
+    .img-logo {
+        display: block;
     }
 }
 
@@ -111,5 +121,17 @@ export default {
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: 60%;
+}
+
+@media screen and (min-width: 576px) {
+    .my-nav {
+        .img-grande {
+            display: block;
+        }
+
+        .img-logo {
+            display: none;
+        }
+    }
 }
 </style>

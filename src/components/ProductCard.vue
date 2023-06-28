@@ -34,70 +34,49 @@ export default {
 </script>
 
 <template>
-    <!-- <div class="card mb-3 rounded-pill align-items-center">
-        <div class="row g-0">
-            <div class="h-100 col-md-4 rounded-circle border border-primary">
-                <img class="img-fluid ratio ratio-1x1"
+    <div class="card mb-3 rounded-pill" data-bs-toggle="modal" :data-bs-target="'#modal-' + product.id">
+        <div class="h-100 row g-0">
+            <div class="h-100 col-3">
+                <img class="h-100 rounded-circle"
                     :src="product.photo ? 'http://127.0.0.1:8000/storage/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
-                    alt="">
+                    alt="Product photo">
             </div>
-            <div class="col-md-8 d-flex align-items-center">
-                <div class="card-body">
-                    <div
-                        class="h-100 d-flex flex-column justify-content-around align-items-center align-items-md-start gap-2">
-                        <h5 class="card-title">{{ product.name }}</h5>
-
-                        <span class="my-text card-text text-lg-start">{{ product.description }}</span>
-                        <span class="card-text"><small class="text-body-secondary"><strong>€ {{ product.price
-                        }}</strong></small>
-                        </span>
-
-                        <div class="d-flex gap-3">
-                            <span class="d-flex align-items-center gap-2">
-                            
-
-                                <button class="btn">
-                                    <i @click="decreaseQuantity()" class="fa-solid fa-minus fw-bold"></i>
-                                </button>
-                                {{ quantityToAdd }}
-                                <button class="btn">
-                                    <i @click="increaseQuantity()" class="fa-solid fa-plus fw-bold"></i>
-                                </button>
-                            </span>
-
-                            <button @click="addToCart()" class="btn btn-primary">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </button>
-                        </div>
-
-                    </div>
+            <div class="col-9 d-flex align-items-center">
+                <div class="card-body p-0">
+                    <h6 class="card-title">{{ product.name }}</h6>
+                    <small class="card-text">€ {{ product.price }}</small>
                 </div>
             </div>
         </div>
-    </div> -->
-    <div class="card mb-3">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img :src="product.photo ? 'http://127.0.0.1:8000/storage/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
-                    class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text">{{ product.description }}</p>
-                    <div class="card-text">{{ product.price }}</div>
-                    <div class="card-text">
-                        <div class="d-flex gap-3">
-                            <span class="d-flex align-items-center gap-2">
-                                <button class="btn border border-2 rounded-3" @click="decreaseQuantity()">-</button>
-                                {{ quantityToAdd }}
-                                <button class="btn border border-2" @click="increaseQuantity()">+</button>
-                            </span>
+    </div>
 
-                            <button @click="addToCart()" class="btn btn-primary">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </button>
-                        </div>
+    <!-- Modal -->
+    <div class="modal fade text-dark" :id="'modal-' + product.id" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">{{ product.name }}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img class="w-100 rounded-circle p-3"
+                        :src="product.photo ? 'http://127.0.0.1:8000/storage/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
+                        alt="">
+                    <div class="card-text text-center p-2">{{ product.description }}</div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <div class="card-text"><strong>€{{ product.price }} </strong></div>
+                    <div class="d-flex gap-3">
+                        <span class="d-flex align-items-center gap-2">
+                            <button class="btn border border-2 rounded-3" @click="decreaseQuantity()">-</button>
+                            {{ quantityToAdd }}
+                            <button class="btn border border-2" @click="increaseQuantity()">+</button>
+                        </span>
+
+                        <button @click="addToCart()" class="btn btn-primary">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -107,35 +86,8 @@ export default {
 
 
 <style lang="scss" scoped>
-// .card {
-//     background-color: rgba($color: #ffffff, $alpha: 0.7);
-//     font-weight: 600;
-//     color: #740c0d;
-//     height: 200px;
-
-//     .row.g-0 {
-//         height: 100%;
-//     }
-
-//     strong {
-//         color: #740c0d;
-//     }
-
-//     // }
-
-//     img {
-//         height: 100%;
-//         object-fit: cover;
-//         border-radius: 50%;
-//     }
-
-//     .card-body {
-//         height: 100%;
-
-//         .my-text {
-//             // font-size: .8em;
-//             overflow-y: auto;
-//         }
-//     }
-// }
+.card {
+    height: 80px;
+    background-color: rgba($color: #ffffff, $alpha: 0.7);
+}
 </style>
