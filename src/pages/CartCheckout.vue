@@ -15,9 +15,15 @@ export default {
 </script>
 
 <template>
-    <div class="container py-5">
-        <AppPayment></AppPayment>
-    </div>
+    <main>
+        <div class="container py-5">
+            <AppPayment></AppPayment>
+        </div>
+    </main>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+main {
+    padding-top: 100px;
+}
+</style>

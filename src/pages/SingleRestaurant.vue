@@ -11,7 +11,8 @@ export default {
             store,
             slug: '',
             restaurantFound: false,
-            restaurant: {}
+            restaurant: {},
+            isLoading: true,
         }
     },
 
@@ -98,24 +99,57 @@ export default {
 </script>
 
 <template>
-    <div v-if="restaurantFound">
-        <div class="container">
-            <h1>
-                {{ restaurant.name }}
-            </h1>
-            <hr>
-            <div class="d-flex flex-column gap-1">
-                <div class="d-flex  gap-1" v-for="product in restaurant.products">
-                    <ProductCard :product="product" @addToCart="addToCart"></ProductCard>
+    <main>
+        <section>
+            <img class="my-img" :src="'http://127.0.0.1:8000/storage/' + restaurant.cover" alt="">
+            <img class="my-logo" :src="'http://127.0.0.1:8000/storage/' + restaurant.logo" alt="">
+        </section>
+        <div class="container py-5 my-menu">
+            <div v-if="restaurantFound">
+                <h1 class="text-center">{{ restaurant.name }}</h1>
+                <hr>
+                <div class="row">
+                    <div class="col-12 col-md-6" v-for="product in restaurant.products">
+                        <ProductCard :product="product" @addToCart="addToCart"></ProductCard>
+                    </div>
                 </div>
+            </div>
+
+            <div v-else class="alert alert-info mb-3" role="alert">
+                Ristorante non trovato.
             </div>
         </div>
 
-    </div>
+    </main>
 </template>
 
 <style scoped lang="scss">
-h1 {
-    padding-top: 100px;
+main {
+
+    section {
+        position: relative;
+
+        .my-img {
+            width: 100%;
+            height: 400px;
+
+            object-fit: cover;
+        }
+
+        .my-logo {
+            height: 60%;
+            position: absolute;
+            left: 12%;
+            top: 400px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    }
+
+    .my-menu {
+        padding-top: 5em !important;
+    }
+
 }
 </style>

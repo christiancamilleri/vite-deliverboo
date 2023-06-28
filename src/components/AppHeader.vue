@@ -10,7 +10,9 @@ export default {
         };
     },
 
-    components: { AppCart },
+    components: {
+        AppCart
+    },
 }
 </script>
 
@@ -55,7 +57,8 @@ export default {
 
         </nav>
 
-        <div class="offcanvas offcanvas-end w-50" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas offcanvas-end w-3 my-cart" tabindex="-1" id="offcanvasRight"
+            aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -81,6 +84,22 @@ export default {
 
     b {
         color: white;
+        font-size: larger;
+        text-shadow: 2px 2px #000000;
     }
+}
+
+#offcanvasRight {
+    border-left: 10px solid #740c0d;
+}
+
+.my-cart {
+    background-color: rgba($color: #ffc109, $alpha: 0.8);
+
+    background-image: url('/img/logo-primary.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 70%;
+
 }
 </style>

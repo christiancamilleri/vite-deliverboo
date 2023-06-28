@@ -108,19 +108,24 @@ export default {
             <h1>{{ store?.restaurantName }}</h1>
 
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center"
+                <li class=" cart-item list-group-item d-flex justify-content-between align-items-center border"
                     v-for="item in store.cartItems">
                     <div>
-                        <span>
-                            {{ item.product.name }} - {{ parseFloat(item.product.price).toFixed(2) }}€
-                        </span>
+                        <div>
+                            {{ item.product.name }}
+                        </div>
+
+
+                        <div class="fst-italic">
+                            {{ parseFloat(item.product.price).toFixed(2) }}€
+                        </div>
                     </div>
 
                     <div class="d-flex gap-3">
                         <span class="d-flex align-items-center gap-2">
-                            <button class="btn btn-secondary" @click="decreaseQuantity(item)">-</button>
+                            <i @click="decreaseQuantity(item)" class="fa-solid fa-minus fw-bold"></i>
                             {{ item.quantity }}
-                            <button class="btn btn-secondary" @click="increaseQuantity(item)">+</button>
+                            <i @click="increaseQuantity(item)" class="fa-solid fa-plus fw-bold"></i>
                         </span>
 
                         <button class="btn btn-danger" @click="removeFromCart(item)"><i
@@ -129,7 +134,7 @@ export default {
                 </li>
             </ul>
 
-            <p class="text-center my-5">Totale: € {{ parseFloat(store.totalPrice).toFixed(2) }}</p>
+            <p class=" my-5">Totale: € {{ parseFloat(store.totalPrice).toFixed(2) }}</p>
 
             <button @click="emptyCart()" class="btn btn-outline-primary me-3">Svuota carrello</button>
 
@@ -142,4 +147,9 @@ export default {
     </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.cart-item {
+    background-color: rgba($color: #740c0d, $alpha: 1.0);
+    color: white;
+}
+</style>

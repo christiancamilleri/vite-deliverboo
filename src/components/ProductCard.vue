@@ -18,14 +18,16 @@ export default {
         },
 
         decreaseQuantity() {
-            if (this.quantityToAdd > 0) {
+            if (this.quantityToAdd > 1) {
                 this.quantityToAdd--;
             }
         },
 
         addToCart() {
-            this.$emit('addToCart', { product: this.product, quantityToAdd: this.quantityToAdd });
-            this.quantityToAdd = 1;
+            if (this.quantityToAdd > 0) {
+                this.$emit('addToCart', { product: this.product, quantityToAdd: this.quantityToAdd });
+                this.quantityToAdd = 1;
+            }
         }
     }
 }
@@ -71,7 +73,7 @@ export default {
     flex-grow: 1;
     flex-direction: column;
 
-    height: 250px;
+    height: 200px;
 
     // background-color: #ffca2cc5;
     // background-color: #000000a1;
@@ -92,8 +94,8 @@ export default {
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        padding: 20px 0 20px 0;
+        justify-content: space-around;
+        // padding: 20px 0 20px 0;
 
         strong {
             color: #740c0d;
