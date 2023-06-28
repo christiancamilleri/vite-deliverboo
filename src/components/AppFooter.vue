@@ -11,132 +11,118 @@ export default {
 
 <template>
     <div>
-        <footer class="my-footer text-center text-lg-start bg-primary">
+        <footer class="my-footer text-center text-lg-start bg-primary py-5">
+            <section class="container d-flex justify-content-center justify-content-md-between mb-5">
+                <div class="d-none d-md-block">
+                    <span>Connettiti con noi sui nostri social:</span>
+                </div>
 
-            <section class="d-flex justify-content-center justify-content-lg-between p-4">
-
-                <div class="container d-flex justify-content-center justify-content-lg-between p-4">
-
-                    <div class="me-5 d-none d-lg-block">
-                        <span>Connettiti con noi sui nostri social:</span>
-                    </div>
-
-
-
-                    <div class="">
-                        <a href="" class="me-4 text-reset">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="" class="me-4 text-reset">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="" class="me-4 text-reset">
-                            <i class="fab fa-google"></i>
-                        </a>
-                        <a href="" class="me-4 text-reset">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="" class="me-4 text-reset">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-
-
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="" class="text-reset">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="" class="text-reset">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="" class="text-reset">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="" class="text-reset">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="" class="text-reset">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                 </div>
             </section>
 
+            <section
+                class="container text-center text-md-start d-flex flex-column flex-md-row justify-content-md-between align-items-center align-items-md-start gap-3 gap-md-0 mb-5">
+                <div id="footer-text">
+                    <h6 class="text-uppercase fw-bold mb-3">
+                        <i class="fas fa-gem me-3"></i>DeliveBoo
+                    </h6>
 
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                    </p>
+                </div>
 
-            <section class="">
-                <div class="container text-center text-md-start mt-5">
+                <div>
+                    <h6 class="text-uppercase fw-bold mb-3">
+                        Servizio
+                    </h6>
 
-                    <div class="row mt-3">
+                    <ul class="link-list d-flex flex-column gap-2">
+                        <li>
+                            <a href="#!" class="text-reset">Rapido</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-reset">Puntuale</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-reset">Sicuro</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-reset">Peciso</a>
+                        </li>
+                    </ul>
+                </div>
 
-                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <div>
+                    <h6 class="text-uppercase fw-bold mb-3">
+                        Link Utili
+                    </h6>
 
-                            <h6 class="__h2 text-uppercase fw-bold mb-4">
-                                <i class="fas fa-gem me-3"></i>DeliveBoo
-                            </h6>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit.
-                            </p>
-                        </div>
+                    <ul class="link-list d-flex flex-column gap-2">
+                        <li>
+                            <a href="#!" class="text-reset">Prezzi</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-reset">Impostazioni</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-reset">Ordini</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-reset">Aiuto</a>
+                        </li>
+                    </ul>
+                </div>
 
-
-                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                            <h6 class="__h2 text-uppercase fw-bold mb-4">
-                                Servizio
-                            </h6>
-                            <p>
-                                <a href="#!" class="text-reset">Rapido</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Puntuale</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Sicuro</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Peciso</a>
-                            </p>
-                        </div>
-
-
-
-                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                            <h6 class="__h2 text-uppercase fw-bold mb-4">
-                                Link Utili
-                            </h6>
-                            <p>
-                                <a href="#!" class="text-reset">Prezzi</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Impostazioni</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Ordini</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Aiuto</a>
-                            </p>
-                        </div>
-
-
-
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-                            <h6 class="__h2 text-uppercase fw-bold mb-4">Contatto</h6>
-                            <p><i class="fas fa-home me-3"></i> Milano, MI 20123</p>
-                            <p>
-                                <i class="fas fa-envelope me-3"></i>
-                                info@deliveboo.com
-                            </p>
-                            <p><i class="fas fa-phone me-3"></i> + 39 123 25 36</p>
-                            <p><i class="fas fa-print me-3"></i> + 39 234 567 89</p>
-                        </div>
-
-                    </div>
-
+                <div>
+                    <h6 class="text-uppercase fw-bold mb-3">Contatto</h6>
+                    <p><i class="fas fa-home me-3"></i>Milano, MI 20123</p>
+                    <p>
+                        <i class="fas fa-envelope me-3"></i>
+                        info@deliveboo.com
+                    </p>
+                    <p><i class="fas fa-phone me-3"></i>+ 39 123 25 36</p>
+                    <p><i class="fas fa-print me-3"></i>+ 39 234 567 89</p>
                 </div>
             </section>
 
-
-
-            <div class="copyright text-center p-4">
-                © 2021 Copyright:
-                <a class="text-reset fw-bold" href="">by Team 6</a>
-            </div>
-
+            <section class="copyright text-center">
+                <p>© 2023 Copyright: Team 6 - Classe#88 - Boolean</p>
+            </section>
         </footer>
     </div>
 </template>
 
 <style lang="scss" scoped>
-footer {
-    background-color: rgba($color: #000000, $alpha: 0.6);
-    color: white;
+#footer-text {
+    width: 80%;
+}
+
+.link-list {
+    padding: 0;
+    list-style-type: none;
+}
+
+@media screen and (min-width: 768px) {
+    #footer-text {
+        width: 30%;
+    }
 }
 </style>

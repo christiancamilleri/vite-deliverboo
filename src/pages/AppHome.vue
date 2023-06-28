@@ -106,85 +106,88 @@ export default {
 </script>
 
 <template>
-    <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
+    <section id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="/img/hamburger.jpg" class="d-block img-fluid my-img" alt="">
-                <div class="info-container">
-                    <div class="carousel-caption d-none d-md-block info animate__animated animate__backInDown">
-                        <h2>Il tuo piatto preferito direttamente a casa tua!</h2>
-                        <p>La scelta migliore per un pasto facile e veloce.</p>
-                    </div>
+            <div class="carousel-item active" data-bs-interval="5000">
+                <img src="/img/hamburger.jpg" class="d-block img-fluid my-img w-100 object-fit-cover" alt="">
+                <div class="carousel-caption d-md-block info animate__animated animate__backInDown p-3">
+                    <h2>Il tuo piatto preferito direttamente a casa tua!</h2>
+                    <p>La scelta migliore per un pasto facile e veloce.</p>
                 </div>
             </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="/img/sushi.jpg" class="d-block img-fluid my-img" alt="...">
-                <div class="carousel-caption d-none d-md-block info animate__animated animate__backInDown">
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="/img/sushi.jpg" class="d-block img-fluid my-img w-100 object-fit-cover" alt="...">
+                <div class="carousel-caption d-md-block info animate__animated animate__backInDown p-3">
                     <h2>La tua fame ha trovato il suo alleato. L'app che ti fa sentire un vero gourmet a domicilio!</h2>
                     <p>Provare per credere!</p>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img src="/img/pizza.jpg" class="d-block img-fluid my-img" alt="...">
-                <div class="carousel-caption d-none d-md-block info animate__animated animate__backInDown">
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="/img/pizza.jpg" class="d-block img-fluid my-img w-100 object-fit-cover" alt="...">
+                <div class="carousel-caption d-md-block info animate__animated animate__backInDown p-3">
                     <h2>Ordina, gusta, ripeti: l'app che porta il tuo cibo preferito a portata di tap!</h2>
                     <p>Tutto cio di cui hai bisogno te lo portiamo noi!</p>
                 </div>
             </div>
         </div>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
+
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </section>
 
-    <div class="container py-5">
-        <form class="p-5" action="" @submit.prevent="" @change="getRestaurants()">
-            <h2 class="text-center pb-4 text-shadow">Scegli tra le tue categorie preferite</h2>
+    <section>
+        <div class="container py-5">
+            <form class="mb-5" action="" @submit.prevent="" @change="getRestaurants()">
+                <h2 class="text-center pb-4 text-shadow">Scegli tra le tue categorie preferite</h2>
 
-            <div class="row g-3 animate__animated animate__flip">
-                <div v-for="typology in typologiesObject" class="my-typology btn-group form-check col-6 col-md-4 col-lg-2"
-                    role="group" aria-label="Basic checkbox toggle button group">
+                <div class="row g-3 animate__animated animate__flip">
+                    <div v-for="typology in typologiesObject"
+                        class="my-typology btn-group form-check col-6 col-md-4 col-lg-2" role="group"
+                        aria-label="Basic checkbox toggle button group">
 
-                    <input v-model="typologiesChecked" type="checkbox" name="typologies" class="btn-check form-check-input"
-                        :id="'typologies-' + typology.id" :value="typology.id">
-                    <label class="btn btn-outline-danger d-flex flex-column align-items-center"
-                        :for="'typologies-' + typology.id">
-                        <img style=" width: 80px; " :src="typology.img" alt="">
-                        <span>{{ typology.name }}</span>
-                    </label>
+                        <input v-model="typologiesChecked" type="checkbox" name="typologies"
+                            class="btn-check form-check-input" :id="'typologies-' + typology.id" :value="typology.id">
+                        <label class="btn btn-outline-danger d-flex flex-column align-items-center"
+                            :for="'typologies-' + typology.id">
+                            <img style=" width: 80px; " :src="typology.img" alt="">
+                            <span>{{ typology.name }}</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <button v-show="typologiesChecked.length" @click="removeFilters()" class="btn btn-danger m-3">Rimuovi
+                        filtri</button>
+                </div>
+            </form>
+
+            <h1 class="text-center text-shadow">Ristoranti</h1>
+            <h4 class="text-center pb-4 text-shadow">Dai un'occhiata alla nostra selezione</h4>
+
+            <div v-if="isLoading == true" class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+
+            <div v-else-if="success" class="row g-3">
+                <div v-for="restaurant in restaurants" class="col-12 col-md-6 col-lg-4 my-container-restaurant">
+                    <RestaurantCard :restaurant="restaurant"></RestaurantCard>
                 </div>
             </div>
-
-            <div class="d-flex justify-content-center">
-                <button v-show="typologiesChecked.length" @click="removeFilters()" class="btn btn-danger m-3">Rimuovi
-                    filtri</button>
-            </div>
-        </form>
-
-        <h1 class="text-center text-shadow">Ristoranti</h1>
-        <h4 class="text-center pb-4 text-shadow">Dai un'occhiata alla nostra selezione</h4>
-
-        <div v-if="isLoading == true" class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-
-        <div v-else-if="success" class="row g-3">
-            <div v-for="restaurant in restaurants" class="col-12 col-md-6 col-lg-4 my-container-restaurant">
-                <RestaurantCard :restaurant="restaurant"></RestaurantCard>
+            <div v-else class="alert alert-danger">
+                {{ error }}
             </div>
         </div>
-        <div v-else class="alert alert-danger">
-            {{ error }}
-        </div>
-    </div>
-    <div class="my-forum bg-primary">
+    </section>
 
-        <div class="container ">
+    <section class="bg-primary">
+        <div class="container py-5">
             <h2 class="py-3">Domande frequenti</h2>
             <div class="accordion animate__animated animate__fadeInLeft pb-4" id="accordionExample">
                 <div class="accordion-item">
@@ -247,7 +250,7 @@ export default {
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <section class="my-bg">
         <div class="container py-5">
@@ -281,10 +284,7 @@ export default {
 
 <style lang="scss" scoped>
 .my-img {
-    width: 100%;
     height: 500px;
-
-    object-fit: cover;
 }
 
 .info {
@@ -295,13 +295,8 @@ export default {
 
 form {
     label {
-
         background-color: rgba($color: #000000, $alpha: 0.6);
     }
-}
-
-.my-forum {
-    background-color: rgb(196, 169, 169);
 }
 
 .my-bg {
