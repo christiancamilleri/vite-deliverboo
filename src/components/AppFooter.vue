@@ -91,16 +91,16 @@ export default {
                                 Link Utili
                             </h6>
                             <p>
-                                <a href="#!" class="text-reset">Pricing</a>
+                                <a href="#!" class="text-reset">Prezzi</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Settings</a>
+                                <a href="#!" class="text-reset">Impostazioni</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Orders</a>
+                                <a href="#!" class="text-reset">Ordini</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Help</a>
+                                <a href="#!" class="text-reset">Aiuto</a>
                             </p>
                         </div>
 
@@ -112,7 +112,7 @@ export default {
                             <p><i class="fas fa-home me-3"></i> Milano, MI 20123</p>
                             <p>
                                 <i class="fas fa-envelope me-3"></i>
-                                deliveboo@delivery.com
+                                deliveboo.team6@gmail.com
                             </p>
                             <p><i class="fas fa-phone me-3"></i> + 39 123 25 36</p>
                             <p><i class="fas fa-print me-3"></i> + 39 234 567 89</p>

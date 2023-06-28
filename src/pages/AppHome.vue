@@ -198,8 +198,8 @@ export default {
                 <span class="visually-hidden">Loading...</span>
             </div>
 
-            <div v-else-if="success" class="row g-3 mt-4">
-                <div v-for="restaurant in restaurants" class="col-12  col-md-4 col-lg-3 my-container-restaurant">
+            <div v-else-if="success" class="row g-3">
+                <div v-for="restaurant in restaurants" class="col-12 col-md-6 col-lg-4 my-container-restaurant">
                     <RestaurantCard :restaurant="restaurant"></RestaurantCard>
                 </div>
             </div>
@@ -273,9 +273,12 @@ export default {
                 </div>
             </div>
         </div>
-        <section class="my-section">
-            <div class="container d-flex justify-content-between align-items-center py-3">
-                <div class="section-left p-4">
+
+        <div class="container p-4">
+
+            <section class="row justify-content-between align-items-center">
+                
+                <div class="col-12 col-md-4 section-left">
                     La nostra app offre un servizio di consegna di cibo con un'impareggiabile efficienza. Grazie alla nostra
                     piattaforma intuitiva e facile da usare, puoi ordinare i tuoi pasti preferiti con pochi semplici clic.
                     Il nostro sistema di gestione degli ordini è progettato per ottimizzare i tempi di preparazione e
@@ -284,8 +287,8 @@ export default {
                     ed efficiente ogni volta che ordini.
                 </div>
                 <img @click="goLogo()" :class="logo ? 'animate__animated animate__bounceOutRight' : ''"
-                    class="img-fluid logo p-3" src="/img/logoR3.png" alt="">
-                <div class="section-right p-2">
+                    class="col-12 col-md-4 img-fluid logo p-5" src="/img/logoR3.png" alt="">
+                <div class="col-12 col-md-4 section-right">
                     La velocità è fondamentale quando si tratta di servizi di consegna di cibo, e siamo fieri di offrire la
                     massima velocità possibile ai nostri clienti. Con la nostra app, puoi goderti un'esperienza di consegna
                     rapida e senza problemi. I nostri corrieri sono attentamente selezionati e utilizzano percorsi
@@ -294,12 +297,13 @@ export default {
                     in modo tempestivo. La nostra priorità assoluta è soddisfare le tue aspettative di velocità, portandoti
                     il tuo cibo preferito in modo rapido e senza intoppi.
                 </div>
-            </div>
-        </section>
+    
+            </section>
+        </div>
     </main>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .my-img {
     width: 100%;
     height: 400px;
@@ -328,29 +332,29 @@ form {
     background-color: rgb(196, 169, 169);
 }
 
-.my-container-restaurant {
-    margin-top: 110px;
-}
+// .my-container-restaurant {
+//     margin-top: 110px;
+// }
 
-.my-section {
+// .my-section {
 
-    background-color: black;
+//     background-color: black;
 
-    .section-left {
-        background-color: rgba($color: #740c0d, $alpha: 0.5);
-        border-radius: 10px;
+//     .section-left {
+//         background-color: rgba($color: #740c0d, $alpha: 0.5);
+//         border-radius: 10px;
 
-    }
+//     }
 
-    .logo {
-        height: 290px;
+    // .logo {
+    //     width: 25%;
 
-    }
+    // }
 
-    .section-right {
-        background-color: rgba($color: #740c0d, $alpha: 0.5);
-        border-radius: 10px;
-    }
+//     .section-right {
+//         background-color: rgba($color: #740c0d, $alpha: 0.5);
+//         border-radius: 10px;
+//     }
 
-}
+// }
 </style>

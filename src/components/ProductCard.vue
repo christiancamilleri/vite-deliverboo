@@ -34,7 +34,46 @@ export default {
 </script>
 
 <template>
-    <div class="card">
+
+
+<div class="card mb-3 rounded-pill  align-items-center " >
+  <div class="row g-0">
+    <div class="col-md-4 rounded-circle border border-primary">
+      <img class="img-fluid " :src="product.photo ? 'http://127.0.0.1:8000/storage/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
+                    alt="">
+    </div>
+    <div class="col-md-8 d-flex align-items-center">
+      <div class="card-body ">
+        <div class="d-flex flex-column justify-content-center align-items-center align-items-lg-start gap-2">
+            <h5 class="card-title">{{ product.name }}</h5>
+
+            <span class="card-text text-center text-lg-start">{{ product.description.substring(0, 80) + '...' }}</span>
+            <span class="card-text"><small class="text-body-secondary"><strong>€ {{ product.price }}</strong></small>
+            </span>
+        
+            <div class="d-flex gap-3">
+                <span class="d-flex align-items-center gap-2">
+                    <button class="btn btn-secondary" @click="decreaseQuantity()">-</button>
+                    {{ quantityToAdd }}
+                    <button class="btn btn-secondary" @click="increaseQuantity()">+</button>
+                </span>
+        
+                <button @click="addToCart()" class="btn btn-primary">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    <!-- <div class="card">
         <div class="row g-0">
             <div class="col-12 col-md-4 col-lg-3">
                 <img :src="product.photo ? 'http://127.0.0.1:8000/storage/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
@@ -61,49 +100,51 @@ export default {
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 
 <style lang="scss" scoped>
 .card {
-    border-radius: 150px;
-    margin-bottom: 15px;
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
+    
+    // border-radius: 150px;
+    // margin-bottom: 15px;
+    // display: flex;
+    // flex-grow: 1;
+    // flex-direction: column;
 
-    height: 200px;
+    // height: 200px;
 
-    // background-color: #ffca2cc5;
-    // background-color: #000000a1;
+    // // background-color: #ffca2cc5;
+    // // background-color: #000000a1;
     background-color: rgb(255, 255, 255);
     font-weight: 600;
     color: #740c0d;
-    border: 2px solid #740c0d;
+    // border: 2px solid #740c0d;
 
-    .row.g-0 {
-        height: 100%;
-    }
+    // .row.g-0 {
+    //     height: 100%;
+    // }
 
-    .col-md-8 {
-        height: 100%;
-    }
+    // .col-md-8 {
+    //     height: 100%;
+    // }
 
-    .card-body {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        // padding: 20px 0 20px 0;
+    // .card-body {
+    //     height: 100%;
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: space-around;
+    //     // padding: 20px 0 20px 0;
 
         strong {
             color: #740c0d;
         }
-    }
+    // }
 
     img {
         height: 100%;
+        object-fit: cover;
         border-radius: 50%;
         // position: absolute;
 

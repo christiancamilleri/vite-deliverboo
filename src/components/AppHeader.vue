@@ -17,47 +17,52 @@ export default {
 </script>
 
 <template>
-    <div>
+    <header>
         <nav class="my-nav navbar navbar-expand-lg">
-            <router-link :to="{ name: 'home' }" class="navbar-brand" href="#"><img src="/img/deliveboo.png"
-                    alt=""></router-link>
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <div class="container-fluid">
+                <div class="w-100 row align-items-center">
+                    <div class="col-6 col-lg-2">
+                        <router-link :to="{ name: 'home' }" class="navbar-brand" href="#">
+                            <img class="w-100" src="/img/deliveboo.png" alt="">
+                        </router-link>
+                    </div>
 
+                    <div class="col-6 col-lg-4 order-lg-2 d-flex justify-content-end align-items-center gap-2 p-0">
+                        <div>
+                            <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <span v-show="store.cartQuantity > 0" class="badge rounded-pill text-bg-danger">
+                                {{ store.cartQuantity }}
+                            </span>
+                        </div>
+                        <div>
+                            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                    </div>
 
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <router-link :to="{ name: 'home' }" class="nav-link"
-                                aria-current="page"><b>Home</b></router-link>
-                        </li>
+                    <div class="col-12 col-lg-4 order-lg-1 collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav text-center">
+                            <li class="nav-item">
+                                <router-link :to="{ name: 'home' }" class="nav-link"
+                                    aria-current="page"><b>Home</b></router-link>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/" target="_blank"><b>Sei un
-                                    ristoratore?</b></a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                    <span v-show="store.cartQuantity > 0" class="badge rounded-pill text-bg-danger">
-                        {{ store.cartQuantity }}
-                    </span>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/" target="_blank"><b>Sei un
+                                        ristoratore?</b></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div>
-
-            </div>
-
         </nav>
 
-        <div class="offcanvas offcanvas-end w-3 my-cart" tabindex="-1" id="offcanvasRight"
+        <div class="offcanvas offcanvas-end my-cart" tabindex="-1" id="offcanvasRight"
             aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header" data-bs-theme="dark">
                 <h5 class="offcanvas-title text-light" id="offcanvasRightLabel">Carrello</h5>
@@ -70,10 +75,10 @@ export default {
 
             </div>
         </div>
-    </div>
+    </header>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .my-nav {
     position: fixed;
     width: 100%;

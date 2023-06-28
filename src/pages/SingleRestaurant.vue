@@ -100,16 +100,17 @@ export default {
 
 <template>
     <main>
-        <section>
-            <img class="my-img" :src="'http://127.0.0.1:8000/storage/' + restaurant.cover" alt="">
-            <img class="my-logo" :src="'http://127.0.0.1:8000/storage/' + restaurant.logo" alt="">
-        </section>
-        <div class="container py-5 my-menu">
+        <div id="images-wrapper">
+            <img v-if="restaurant.cover" class="my-img" :src="'http://127.0.0.1:8000/storage/' + restaurant.cover" alt="">
+            <img v-if="restaurant.logo"  class="my-logo position-absolute top-100 start-50 rounded-circle" :src="'http://127.0.0.1:8000/storage/' + restaurant.logo" alt="">
+        </div>
+
+        <div class="container my-menu">
             <div v-if="restaurantFound">
                 <h1 class="text-center">{{ restaurant.name }}</h1>
                 <hr>
                 <div class="row">
-                    <div class="col-12 col-lg-6" v-for="product in restaurant.products">
+                    <div class="col-12 col-xl-6" v-for="product in restaurant.products">
                         <ProductCard :product="product" @addToCart="addToCart"></ProductCard>
                     </div>
                 </div>
@@ -123,33 +124,33 @@ export default {
     </main>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 main {
 
-    section {
+    #images-wrapper {
+        height: 400px;
         position: relative;
 
         .my-img {
             width: 100%;
-            height: 400px;
+            height: 100%;
 
             object-fit: cover;
         }
 
         .my-logo {
-            height: 60%;
-            position: absolute;
-            left: 12%;
-            top: 400px;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
+            height: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+
+            transform: translate(-50%, -70%);
+            box-shadow: 0px 0px 10px black;
         }
 
     }
 
     .my-menu {
-        padding-top: 5em !important;
+        padding-top: 9em;
     }
-
 }
 </style>
