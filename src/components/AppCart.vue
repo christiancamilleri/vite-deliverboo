@@ -108,7 +108,7 @@ export default {
             <h1>{{ store?.restaurantName }}</h1>
 
             <ul class="list-group">
-                <li class=" cart-item list-group-item d-flex justify-content-between align-items-center"
+                <li class="cart-item list-group-item d-flex justify-content-between align-items-center"
                     v-for="item in store.cartItems">
                     <div>
                         <div>
@@ -149,7 +149,7 @@ export default {
         </div>
 
 
-        <div v-else class="alert alert-info mb-3" role="alert">
+        <div v-else class="alert alert-warning mb-3" role="alert">
             Carrello vuoto.
         </div>
     </main>
