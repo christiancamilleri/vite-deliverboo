@@ -29,7 +29,11 @@ export default {
                 this.quantityToAdd = 1;
             }
         }
-    }
+    },
+
+    emits: [
+        'addToCart',
+    ],
 }
 </script>
 
