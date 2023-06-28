@@ -105,7 +105,7 @@ export default {
     img {
         height: 100%;
         border-radius: 50%;
-        position: absolute;
+        // position: absolute;
 
     }
 }

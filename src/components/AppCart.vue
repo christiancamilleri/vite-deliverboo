@@ -104,11 +104,11 @@ export default {
 
 <template>
     <div class="container">
-        <div class="mb-3" v-if="store.cartItems.length">
+        <div class="mb-3 text-light my-container" v-if="store.cartItems.length">
             <h1>{{ store?.restaurantName }}</h1>
 
             <ul class="list-group">
-                <li class=" cart-item list-group-item d-flex justify-content-between align-items-center border"
+                <li class=" cart-item list-group-item d-flex justify-content-between align-items-center"
                     v-for="item in store.cartItems">
                     <div>
                         <div>
@@ -135,11 +135,17 @@ export default {
             </ul>
 
             <p class=" my-5">Totale: € {{ parseFloat(store.totalPrice).toFixed(2) }}</p>
+            <div class="d-flex justify-content-between gap-3">
+                <button @click="emptyCart()" class="btn btn-outline-warning text-light me-3">Svuota carrello</button>
+                <router-link class="btn btn-outline-warning text-light" :to="{ name: 'cart' }">Vai al
+                    carrello</router-link>
 
-            <button @click="emptyCart()" class="btn btn-outline-primary me-3">Svuota carrello</button>
+                <router-link class="btn btn-outline-warning text-light" :to="{ name: 'checkout' }">Procedi con
+                    l'ordine</router-link>
+            </div>
 
-            <router-link class="btn btn-primary" :to="{ name: 'checkout' }">Procedi con l'ordine</router-link>
         </div>
+
 
         <div v-else class="alert alert-info mb-3" role="alert">
             Carrello vuoto.
@@ -148,8 +154,19 @@ export default {
 </template>
 
 <style scoped lang="scss">
-.cart-item {
-    background-color: rgba($color: #740c0d, $alpha: 1.0);
-    color: white;
+.my-container {
+    overflow: auto;
+
+    .cart-item {
+        background-color: rgba($color: #ffc109, $alpha: 1.0);
+        color: #740c0d;
+        font-weight: 600;
+        border: 2px solid #8d1616;
+        border-radius: 40px;
+        margin-bottom: 10px;
+        padding: 20px;
+
+
+    }
 }
 </style>

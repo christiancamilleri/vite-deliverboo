@@ -59,8 +59,8 @@ export default {
 
         <div class="offcanvas offcanvas-end w-3 my-cart" tabindex="-1" id="offcanvasRight"
             aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello</h5>
+            <div class="offcanvas-header" data-bs-theme="dark">
+                <h5 class="offcanvas-title text-light" id="offcanvasRightLabel">Carrello</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -68,7 +68,6 @@ export default {
 
                 <hr>
 
-                <router-link class="btn btn-primary" :to="{ name: 'cart' }">Vai al carrello</router-link>
             </div>
         </div>
     </div>
@@ -90,16 +89,17 @@ export default {
 }
 
 #offcanvasRight {
-    border-left: 10px solid #740c0d;
+    border-left: 5px solid #ffc109;
 }
 
 .my-cart {
-    background-color: rgba($color: #ffc109, $alpha: 0.8);
+    background-color: rgba($color: #740c0d, $alpha: 0.8);
 
-    background-image: url('/img/logo-primary.png');
+    background-image: url('/img/contornoY.png');
     background-repeat: no-repeat;
     background-position: bottom right;
-    background-size: 70%;
+    background-size: 60%;
+
 
 }
 </style>
