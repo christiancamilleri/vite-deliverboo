@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-    <div v-on:mouseover="overRestaurant()" v-on:mouseleave="leaveRestaurant()" class="card h-100 my-restaurant-card">
+    <div class="card h-100 my-restaurant-card">
         <img :src="img" class="card-img-top" alt="restaurant-img">
         <div class="card-body d-flex flex-column justify-content-between">
             <h5 class="card-title my-restaurant-title">{{ restaurant.name }}</h5>

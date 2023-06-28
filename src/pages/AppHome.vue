@@ -86,7 +86,7 @@ export default {
                 if (this.success) {
                     this.restaurants = res.data.results;
                     this.typologies = res.data.allTypologies;
-                    console.log(this.typologies);
+
                     for (let i = 0; i < this.typologies.length; i++) {
                         this.typologiesObject[i].name = this.typologies[i].name;
                         this.typologiesObject[i].id = this.typologies[i].id;
