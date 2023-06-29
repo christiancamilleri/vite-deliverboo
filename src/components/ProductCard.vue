@@ -104,6 +104,8 @@ export default {
     -webkit-box-shadow: 5px 5px 23px 5px #000000;
     box-shadow: 5px 5px 23px 5px #000000;
 
+    transition: 0.6s;
+
     background-color: rgba($color: #ffffff, $alpha: 0.8);
     height: 100px;
     cursor: pointer;
@@ -122,7 +124,7 @@ export default {
 :hover.card {
     background-color: rgba($color: #740c0d, $alpha: 0.6);
     color: white;
-    transition: 0.3s;
+
     scale: 105%;
 
     -webkit-box-shadow: 5px 5px 23px 5px #ffffff;

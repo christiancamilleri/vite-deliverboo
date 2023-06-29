@@ -177,7 +177,7 @@ export default {
                 </div>
             </div>
 
-            <div v-else-if="success" class="row g-3">
+            <div v-else-if="success" class="row g-5">
                 <div v-for="restaurant in restaurants" class="col-12 col-md-6 col-lg-4 my-container-restaurant">
                     <RestaurantCard :restaurant="restaurant"></RestaurantCard>
                 </div>

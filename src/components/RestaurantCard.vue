@@ -57,8 +57,21 @@ export default {
     background-color: rgba($color: #ffffff, $alpha: 0.5);
     border-radius: 20px;
 
+    -webkit-box-shadow: 5px 5px 23px 5px #000000;
+    box-shadow: 5px 5px 23px 5px #000000;
+
+    transition: 0.6s;
+
+    &:hover{
+        -webkit-box-shadow: 5px 5px 23px 5px #ffffff;
+        box-shadow: 5px 5px 23px 5px #ffffff;
+    }
+
     &:hover .my-img {
-        transform: translateY(-80%) scale(1.1);
+        transform: translateY(-80%) scale(1.2);
+
+        -webkit-box-shadow: 5px 5px 23px 5px #000000;
+        box-shadow: 5px 5px 23px 5px #000000;
     }
 
     .card-body {
