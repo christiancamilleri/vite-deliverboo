@@ -101,6 +101,9 @@ export default {
 
 .card {
 
+    -webkit-box-shadow: 5px 5px 23px 5px #000000; 
+box-shadow: 5px 5px 23px 5px #000000;
+
     background-color: rgba($color: #ffffff, $alpha: 0.8);
     height: 100px;
     cursor: pointer;
