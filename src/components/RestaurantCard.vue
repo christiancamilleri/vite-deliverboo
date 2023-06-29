@@ -32,7 +32,9 @@ export default {
 </script>
 
 <template>
-    <div class="card h-100 my-card">
+    <router-link class="card h-100 my-card text-decoration-none"
+        :to="{ name: 'restaurants.show', params: { slug: restaurant.slug } }">
+
         <div id="cover-img-wrapper">
             <img :src="cover" class="card-img-top" alt="cover-img">
         </div>
@@ -40,15 +42,15 @@ export default {
         <div class="card-body d-flex flex-column justify-content-between">
             <img :src="img" class="card-img-top my-img" alt="restaurant-img">
             <h3 class="card-title text-center py-3">{{ restaurant.name }}</h3>
-            <p>
-                <span v-for="typology in restaurant.typologies" class="badge me-1 "
+            <p class="d-flex justify-content-center gap-1">
+                <span v-for="typology in restaurant.typologies" class="badge "
                     :style="{ backgroundColor: typology.color }">{{ typology.name }}</span>
             </p>
-            <router-link class="btn btn-primary justify-self-end"
-                :to="{ name: 'restaurants.show', params: { slug: restaurant.slug } }">Mostra
-                dettagli</router-link>
+
+            <button class="btn btn-primary justify-self-end">Mostra
+                dettagli</button>
         </div>
-    </div>
+    </router-link>
 </template>
 
 <style lang="scss" scoped>
@@ -62,7 +64,7 @@ export default {
 
     transition: 0.6s;
 
-    &:hover{
+    &:hover {
         -webkit-box-shadow: 5px 5px 23px 5px #ffffff;
         box-shadow: 5px 5px 23px 5px #ffffff;
     }

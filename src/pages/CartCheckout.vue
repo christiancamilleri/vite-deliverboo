@@ -21,6 +21,8 @@ export default {
 <template>
     <main>
         <div class="container py-5">
+            <router-link class="btn btn-warning mb-2 text-light text-decoration-none" :to="{ name: 'cart' }">Torna al
+                carrello</router-link>
             <AppPayment></AppPayment>
         </div>
     </main>

@@ -75,6 +75,7 @@ export default {
                 }
                 this.store.restaurant_id = item['restaurant_id'];
                 this.store.restaurantName = this.restaurant.name;
+                this.store.restaurantSlug = this.restaurant.slug;
                 this.store.cartItems.push(newItem);
                 this.saveCartItems();
             }
@@ -84,6 +85,7 @@ export default {
             localStorage.setItem('cartItems', JSON.stringify(this.store.cartItems));
             localStorage.setItem('restaurant_id', this.store.restaurant_id);
             localStorage.setItem('restaurantName', this.store.restaurantName);
+            localStorage.setItem("restaurantSlug", this.store.restaurantSlug);
             this.updateCartInfo();
         },
 
@@ -121,9 +123,13 @@ export default {
 </script>
 
 <template>
-    <div id="images-wrapper">
+    <div id="images-wrapper" class="position-relative">
         <img class="my-img" :src="cover" alt="">
         <img class="my-logo position-absolute top-100 start-50 rounded-circle" :src="img" alt="">
+
+        <router-link id="button-back"
+            class="btn btn-warning text-primary position-absolute rounded-circle z-3 d-flex align-items-center justify-content-center"
+            :to="{ name: 'home' }"><i class="fas fa-arrow-left fs-4"></i></router-link>
     </div>
 
     <div class="container my-menu">
@@ -153,7 +159,6 @@ export default {
 <style lang="scss" scoped>
 #images-wrapper {
     height: 400px;
-    position: relative;
 
     .my-img {
         width: 100%;
@@ -171,6 +176,14 @@ export default {
         box-shadow: 0px 0px 10px black;
     }
 
+    #button-back {
+        width: 60px;
+        height: 60px;
+        bottom: 0;
+        left: 20px;
+
+        transform: translateY(50%);
+    }
 }
 
 .my-menu {

@@ -171,7 +171,9 @@ export default {
             </form>
 
 
-            <h1 class="text-center text-shadow animate__animated animate__zoomInRight animate__slow	2s">Ristoranti</h1>
+            <h1 id="restaurants-title"
+                class="text-center text-shadow animate__animated animate__zoomInRight animate__slow	2s restaurants-title">
+                Ristoranti</h1>
             <h4 class="text-center pb-4 text-shadow animate__animated animate__zoomInLeft animate__slow	2s">Dai un'occhiata
                 alla nostra
                 selezione</h4>

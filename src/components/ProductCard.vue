@@ -61,7 +61,7 @@ export default {
             <div class="modal-content  my-modal rounded-5">
                 <div class="modal-header prova bg-primary text-light my-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">{{ product.name }}</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
                     <img class="my-img-modal"

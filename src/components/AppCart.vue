@@ -44,6 +44,7 @@ export default {
                 }
                 this.store.restaurant_id = item['restaurant_id'];
                 this.store.restaurantName = this.restaurant.name;
+                this.store.restaurantSlug = this.restaurant.slug;
                 this.store.cartItems.push(newItem);
                 this.saveCartItems();
             }
@@ -58,8 +59,10 @@ export default {
         },
 
         saveCartItems() {
-            localStorage.setItem("cartItems", JSON.stringify(this.store.cartItems));
-            localStorage.setItem("restaurant_id", this.store.restaurant_id);
+            localStorage.setItem('cartItems', JSON.stringify(this.store.cartItems));
+            localStorage.setItem('restaurant_id', this.store.restaurant_id);
+            localStorage.setItem('restaurantName', this.store.restaurantName);
+            localStorage.setItem("restaurantSlug", this.store.restaurantSlug);
             this.updateCartInfo();
         },
 
@@ -141,6 +144,14 @@ export default {
             <p class=" my-5">Totale: € {{ parseFloat(store.totalPrice).toFixed(2) }}</p>
             <div class="d-flex justify-content-between gap-3">
                 <button @click="emptyCart()" class="btn btn-primary border-warning text-light">Svuota carrello</button>
+
+
+                <button v-if="store.restaurantSlug" type="button" class="btn btn-primary border-warning"
+                    data-bs-dismiss="offcanvas" aria-label="Close">
+                    <router-link class="text-light text-decoration-none"
+                        :to="{ name: 'restaurants.show', params: { slug: store.restaurantSlug } }">Aggiungi al tuo
+                        ordine</router-link>
+                </button>
 
                 <button type="button" class="btn btn-primary border-warning" data-bs-dismiss="offcanvas" aria-label="Close">
                     <router-link class="text-light text-decoration-none" :to="{ name: 'checkout' }">Procedi con

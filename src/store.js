@@ -8,6 +8,8 @@ export const store = reactive({
 
     restaurantName: localStorage.getItem('restaurantName') || '',
 
+    restaurantSlug: localStorage.getItem('restaurantSlug') || '',
+
     cartQuantity: localStorage.getItem('quantity') || 0,
 
     totalPrice: localStorage.getItem('total_price') || 0,
