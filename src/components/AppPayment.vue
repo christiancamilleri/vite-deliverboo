@@ -51,6 +51,7 @@ export default {
 
                             if (this.paymentSuccess) {
                                 this.emptyCart();
+                                this.payload.user = {};
                             }
                             else {
                                 this.errors = res.data.errors;
@@ -180,12 +181,10 @@ export default {
 
         <div v-show="paymentReady" id="dropin-container"></div>
 
-        <div v-show="!paymentLoading">
-            <button v-show="paymentReady" type="submit" id="submit-button" class="btn btn-primary mb-3"
-                :class="store.cartItems.length ? '' : 'disabled'">Effettua pagamento</button>
-        </div>
+        <button v-show="!paymentLoading && paymentReady" type="submit" id="submit-button" class="btn btn-primary mb-3"
+            :class="store.cartItems.length ? '' : 'disabled'">Effettua pagamento</button>
 
-        <div v-show="paymentLoading">
+        <div v-show="paymentLoading || !paymentReady" id="loading">
             <div class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
@@ -199,4 +198,19 @@ export default {
     </form>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#loading {
+    background-color: #0000006f;
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>

@@ -123,12 +123,12 @@ export default {
 
                     <div class="d-flex gap-3">
                         <span class="d-flex align-items-center gap-2">
-                            <button class="btn">
-                                <i @click="decreaseQuantity(item)" class="fa-solid fa-minus fw-bold"></i>
+                            <button @click="decreaseQuantity(item)" class="btn">
+                                <i class="fa-solid fa-minus fw-bold"></i>
                             </button>
                             {{ item.quantity }}
-                            <button class="btn">
-                                <i @click="increaseQuantity(item)" class="fa-solid fa-plus fw-bold"></i>
+                            <button @click="increaseQuantity(item)" class="btn">
+                                <i class="fa-solid fa-plus fw-bold"></i>
                             </button>
                         </span>
 
