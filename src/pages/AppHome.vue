@@ -294,4 +294,5 @@ form {
 
 .my-bg {
     background-color: #00000073;
-}</style>
+}
+</style>

@@ -23,7 +23,7 @@ export default {
             <div class="container-fluid">
                 <router-link :to="{ name: 'home' }" class="navbar-brand h-100" href="#">
                     <img class="img-logo-lg d-none d-md-block" src="/img/deliveboo.png" alt="">
-                    <img class="img-logo d-md-none" src="/img/logo-primary.png" alt="">
+                    <img class="img-logo d-md-none" src="/img/logoR3.png" alt="">
                 </router-link>
 
                 <div class="me-3">
