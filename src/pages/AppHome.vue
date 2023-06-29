@@ -194,12 +194,14 @@ export default {
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Ma è vero che siete il servizio più efficiente del mondo?
+                            Qual è il tempo di consegna medio?
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <strong>Certo! me l ha detto mmio cuggino </strong>
+                            Il tempo di consegna medio dipende dalla distanza tra il ristorante e il tuo indirizzo di
+                            consegna, nonché dal volume di ordini in quel momento. Di solito, il tempo di consegna varia da
+                            30 a 60 minuti. Puoi controllare il tempo stimato di consegna durante l'ordine.
                         </div>
                     </div>
                 </div>
@@ -207,22 +209,15 @@ export default {
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Accordion Item #2
+                            Cosa succede se l'ordine è errato o manca qualcosa?
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <strong>This is the second item's accordion body.</strong> It is hidden by default, until
-                            the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes
-                            control the overall appearance, as well as the showing and hiding via CSS transitions. You
-                            can
-                            modify any of this with custom CSS or overriding our default variables. It's also worth
-                            noting
-                            that just about any HTML can go within the <code>.accordion-body</code>, though the
-                            transition
-                            does limit overflow.
+                            Ci scusiamo sinceramente se l'ordine è errato o manca qualcosa. In caso di problemi con il tuo
+                            ordine, ti invitiamo a contattarci immediatamente al numero di assistenza clienti indicato
+                            nell'app. Faremo del nostro meglio per risolvere la situazione il più rapidamente possibile,
+                            fornendo un rimborso o organizzando una nuova consegna.
                         </div>
                     </div>
                 </div>
@@ -230,21 +225,15 @@ export default {
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Accordion Item #3
+                            Quali sono i metodi di pagamento accettati?
                         </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes
-                            control the overall appearance, as well as the showing and hiding via CSS transitions. You
-                            can
-                            modify any of this with custom CSS or overriding our default variables. It's also worth
-                            noting
-                            that just about any HTML can go within the <code>.accordion-body</code>, though the
-                            transition
-                            does limit overflow.
+                            Ci scusiamo sinceramente se l'ordine è errato o manca qualcosa. In caso di problemi con il tuo
+                            ordine, ti invitiamo a contattarci immediatamente al numero di assistenza clienti indicato
+                            nell'app. Faremo del nostro meglio per risolvere la situazione il più rapidamente possibile,
+                            fornendo un rimborso o organizzando una nuova consegna.
                         </div>
                     </div>
                 </div>
@@ -305,5 +294,4 @@ form {
 
 .my-bg {
     background-color: #00000073;
-}
-</style>
+}</style>
