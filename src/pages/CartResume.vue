@@ -5,12 +5,18 @@ export default {
     name: 'CartResume',
 
     data() {
-        return {};
+        return {
+
+        };
     },
 
     components: {
         AppCart
-    }
+    },
+
+    mounted() {
+        window.scrollTo(0, 0);
+    },
 }
 </script>
 

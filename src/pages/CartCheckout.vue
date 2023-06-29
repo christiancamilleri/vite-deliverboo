@@ -10,7 +10,11 @@ export default {
 
     components: {
         AppPayment
-    }
+    },
+
+    mounted() {
+        window.scrollTo(0, 0);
+    },
 }
 </script>
 

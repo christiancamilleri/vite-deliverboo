@@ -78,7 +78,7 @@ export default {
                             <button class=" my-btn btn btn-primary " @click="increaseQuantity()">+</button>
                         </span>
 
-                        <button @click="addToCart()" class="btn btn-primary my-cart">
+                        <button @click="addToCart()" class="btn btn-primary my-cart" data-bs-dismiss="modal">
                             <i class="fa-solid fa-cart-shopping"></i>
                             Aggiungi al carrello
                         </button>
