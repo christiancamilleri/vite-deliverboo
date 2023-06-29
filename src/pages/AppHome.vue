@@ -145,11 +145,13 @@ export default {
     <section>
         <div class="container py-5">
             <form class="mb-5 " action="" @submit.prevent="" @change="getRestaurants()">
-                <h2 class="text-center pb-4 text-shadow">Scegli tra le tue categorie preferite</h2>
+                <h2 class="text-center pb-4 text-shadow animate__animated  animate__fadeIn animate__slow 2s">Scegli tra le
+                    tue categorie
+                    preferite</h2>
 
-                <div class="row g-3">
+                <div class="row g-3 animate__animated  animate__zoomInUp animate__slow 2s">
                     <div v-for="typology in typologiesObject"
-                        class="my-typology btn-group form-check col-6 col-md-4 col-lg-2 px-1" role="group"
+                        class="my-typology btn-group form-check col-6 col-md-4 col-lg-2 px-1 " role="group"
                         aria-label="Basic checkbox toggle button group">
 
                         <input v-model="typologiesChecked" type="checkbox" name="typologies"
@@ -168,8 +170,11 @@ export default {
                 </div>
             </form>
 
-            <h1 class="text-center text-shadow">Ristoranti</h1>
-            <h4 class="text-center pb-4 text-shadow">Dai un'occhiata alla nostra selezione</h4>
+
+            <h1 class="text-center text-shadow animate__animated animate__zoomInRight animate__slow	2s">Ristoranti</h1>
+            <h4 class="text-center pb-4 text-shadow animate__animated animate__zoomInLeft animate__slow	2s">Dai un'occhiata
+                alla nostra
+                selezione</h4>
 
             <div v-if="isLoading == true" id="loading">
                 <div class="spinner-border" role="status">
