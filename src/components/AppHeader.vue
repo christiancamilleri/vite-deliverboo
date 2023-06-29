@@ -45,12 +45,16 @@ export default {
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav text-center">
-                        <li class="nav-item">
+                        <li class="nav-item" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                             <router-link :to="{ name: 'home' }" class="nav-link text-shadow"
                                 aria-current="page"><b>Home</b></router-link>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                             <a class="nav-link text-shadow" aria-current="page" href="http://127.0.0.1:8000/"
                                 target="_blank"><b>Sei
                                     un
