@@ -67,7 +67,7 @@ export default {
 
     .my-img {
         height: 100px;
-        width: auto;
+        width: 100px;
         position: absolute;
         top: 0;
         left: 10px;
