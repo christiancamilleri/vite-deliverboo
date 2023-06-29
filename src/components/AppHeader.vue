@@ -26,9 +26,8 @@ export default {
                     <img class="img-logo d-md-none" src="/img/logo-primary.png" alt="">
                 </router-link>
 
-                <div class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <button type="button" class="btn btn-warning position-relative text-light me-3"
+                <div class="me-3">
+                    <button type="button" class="d-lg-none btn btn-warning position-relative text-light me-3"
                         data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span v-show="store.cartQuantity > 0"
@@ -36,7 +35,10 @@ export default {
                             {{ store.cartQuantity }}
                         </span>
                     </button>
-                    <button>
+
+                    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
@@ -57,7 +59,7 @@ export default {
                     </ul>
                 </div>
 
-                <div class="d-none d-lg-block">
+                <div class="d-none d-lg-block me-3">
                     <button type="button" class="btn btn-warning position-relative text-light" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                         <i class="fa-solid fa-cart-shopping"></i>
