@@ -157,7 +157,7 @@ export default {
                         <label class="btn btn-outline-danger d-flex flex-column align-items-center"
                             :for="'typologies-' + typology.id">
                             <img class="w-80" :src="typology.img" alt="">
-                            <span class="text-shadow"><b>{{ typology.name }}</b></span>
+                            <span class="text-shadow my-typologies"><b>{{ typology.name }}</b></span>
                         </label>
                     </div>
                 </div>
@@ -252,7 +252,7 @@ export default {
         </div>
     </section>
 
-    <section class="my-bg">
+    <section class="my-bg position-relative">
         <div class="container py-5">
             <div class="row justify-content-between align-items-center">
 
@@ -291,6 +291,10 @@ export default {
     background-color: rgba($color: #000000, $alpha: 0.3);
 
     border-radius: 20px;
+}
+
+.my-typology:hover .my-typologies {
+    color: white;
 }
 
 form {
