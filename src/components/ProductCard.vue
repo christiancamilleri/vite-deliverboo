@@ -38,10 +38,10 @@ export default {
 </script>
 
 <template>
-    <div class="card mb-3 rounded-pill" data-bs-toggle="modal" :data-bs-target="'#modal-' + product.id">
+    <div class="card rounded-pill" data-bs-toggle="modal" :data-bs-target="'#modal-' + product.id">
         <div class="h-100 row g-0">
             <div class="h-100 col-3">
-                <img class="h-100 rounded-circle"
+                <img class="my-img-card"
                     :src="product.photo ? 'http://127.0.0.1:8000/storage/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
                     alt="Product photo">
             </div>
@@ -55,16 +55,16 @@ export default {
     </div>
 
     <!-- Modal -->
-    <div class="modal fade text-dark " :id="'modal-' + product.id" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade text-dark  " :id="'modal-' + product.id" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered  ">
-            <div class="modal-content  my-modal">
-                <div class="modal-header prova">
+        <div class="modal-dialog modal-dialog-centered  rounded-5">
+            <div class="modal-content  my-modal rounded-5">
+                <div class="modal-header prova bg-primary text-light my-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">{{ product.name }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <img class="w-100 rounded-circle p-3"
+                <div class="modal-body text-center">
+                    <img class="my-img-modal"
                         :src="product.photo ? 'http://127.0.0.1:8000/storage/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
                         alt="">
                     <div class="card-text text-center p-2 cart-item">{{ product.description }}</div>
@@ -73,13 +73,14 @@ export default {
                     <div class="card-text"><strong>€{{ product.price }} </strong></div>
                     <div class="d-flex gap-3">
                         <span class="d-flex align-items-center gap-2">
-                            <button class="btn border border-2 rounded-3" @click="decreaseQuantity()">-</button>
+                            <button class="my-btn btn btn-primary" @click="decreaseQuantity()">-</button>
                             {{ quantityToAdd }}
-                            <button class="btn border border-2" @click="increaseQuantity()">+</button>
+                            <button class=" my-btn btn btn-primary " @click="increaseQuantity()">+</button>
                         </span>
 
-                        <button @click="addToCart()" class="btn btn-primary">
+                        <button @click="addToCart()" class="btn btn-primary my-cart">
                             <i class="fa-solid fa-cart-shopping"></i>
+                            Aggiungi al carrello
                         </button>
                     </div>
                 </div>
@@ -90,22 +91,52 @@ export default {
 
 
 <style lang="scss" scoped>
-.card {
-    height: 120px;
-    background-color: rgba($color: #ffffff, $alpha: 0.7);
+.my-modal {
+
+
+    .my-header {
+        border-radius: 30px 30px 0 0;
+    }
 }
 
+.card {
+
+    background-color: rgba($color: #ffffff, $alpha: 0.8);
+    height: 100px;
+    cursor: pointer;
+
+    .my-img-card {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
 
 
-.cart-item {
-    background-color: rgba($color: #ffc109, $alpha: 1.0);
-    color: #740c0d;
-    font-weight: 600;
-    border: 2px solid #8d1616;
-    border-radius: 40px;
-    margin-bottom: 10px;
-    padding: 20px;
+}
 
+:hover.card {
+    background-color: rgba($color: #740c0d, $alpha: 0.6);
+    color: white;
+    transition: 0.3s;
+    scale: 105%;
+}
 
+.my-img-modal {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+:hover.my-cart {
+
+    background-color: #ffc109;
+
+}
+
+:hover.my-btn {
+    background-color: #ffc109;
 }
 </style>

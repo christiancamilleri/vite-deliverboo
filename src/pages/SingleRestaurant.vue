@@ -126,7 +126,7 @@ export default {
             <h1 class="text-center">{{ restaurant.name }}</h1>
             <hr>
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4" v-for="product in restaurant.products">
+                <div class="col-12 col-md-6 col-lg-4 p-3" v-for="product in restaurant.products">
                     <ProductCard :product="product" @addToCart="addToCart"></ProductCard>
                 </div>
             </div>
