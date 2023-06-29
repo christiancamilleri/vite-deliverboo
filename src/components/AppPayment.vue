@@ -126,9 +126,9 @@ export default {
 </script>
 
 <template>
-    <form @submit.prevent="payment()" id="payment">
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="name-addon">Nome *</span>
+    <form @submit.prevent="payment()" id="payment" class=" p-3 rounded-2">
+        <div class="form-check ps-0 mb-3">
+            <label class="form-label" id="name-addon">Nome *</label>
             <input v-model="payload.user.name" type="text" class="form-control"
                 :class="errors && errors['user.name'] ? 'is-invalid' : ''" aria-describedby="name-addon">
             <div v-if="errors && errors['user.name']" class="invalid-feedback">
@@ -136,8 +136,8 @@ export default {
             </div>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="email-addon">Indirizzo E-mail *</span>
+        <div class="form-check ps-0 mb-3">
+            <label class="form-label" id="email-addon">Indirizzo E-mail *</label>
             <input v-model="payload.user.email" :class="errors && errors['user.email'] ? 'is-invalid' : ''" type="email"
                 class="form-control" aria-describedby="email-addon">
             <div v-if="errors && errors['user.email']" class="invalid-feedback">
@@ -145,8 +145,8 @@ export default {
             </div>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="postal_code-addon">CAP *</span>
+        <div class="form-check ps-0 mb-3">
+            <label class="form-label" id="postal_code-addon">CAP *</label>
             <input v-model="payload.user.postal_code" :class="errors && errors['user.postal_code'] ? 'is-invalid' : ''"
                 type="text" class="form-control" aria-describedby="postal_code-addon" pattern="[0-9]{5}" maxlength="5">
             <div v-if="errors && errors['user.postal_code']" class="invalid-feedback">
@@ -154,8 +154,8 @@ export default {
             </div>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="address-addon">Indirizzo *</span>
+        <div class="form-check ps-0 mb-3">
+            <label class="form-label" id="address-addon">Indirizzo *</label>
             <input v-model="payload.user.address" :class="errors && errors['user.address'] ? 'is-invalid' : ''"
                 type="address" class="form-control" aria-describedby="address-addon">
             <div v-if="errors && errors['user.address']" class="invalid-feedback">
@@ -163,8 +163,8 @@ export default {
             </div>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="phone-addon">Telefono *</span>
+        <div class="form-check ps-0 mb-3">
+            <label class="form-label" id="phone-addon">Telefono *</label>
             <input v-model="payload.user.phone" :class="errors && errors['user.phone'] ? 'is-invalid' : ''" type="phone"
                 class="form-control" aria-describedby="phone-addon">
             <div v-if="errors && errors['user.phone']" class="invalid-feedback">
@@ -172,8 +172,8 @@ export default {
             </div>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="optional-info-addon">Informazioni aggiuntive (opzionali)</span>
+        <div class="form-check ps-0 mb-3">
+            <label class="form-label" id="optional-info-addon">Informazioni aggiuntive (opzionali)</label>
             <textarea v-model="payload.user.optional_info" class="form-control" name="optional-info" id="optional-info"
                 aria-describedby="optional-info-addon"></textarea>
         </div>
@@ -199,6 +199,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+#payment {
+    background-color: rgba(0, 0, 0, 0.206);
+}
+
 #loading {
     background-color: #0000006f;
     width: 100vw;
