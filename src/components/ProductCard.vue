@@ -55,7 +55,7 @@ export default {
     </div>
 
     <!-- Modal -->
-    <div class="modal fade text-dark  " :id="'modal-' + product.id" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade text-dark pe-0 " :id="'modal-' + product.id" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered  rounded-5">
             <div class="modal-content  my-modal rounded-5">
