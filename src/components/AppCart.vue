@@ -142,8 +142,10 @@ export default {
             <div class="d-flex justify-content-between gap-3">
                 <button @click="emptyCart()" class="btn btn-primary border-warning text-light">Svuota carrello</button>
 
-                <router-link class="btn btn-primary border-warning text-light" :to="{ name: 'checkout' }">Procedi con
-                    l'ordine</router-link>
+                <button type="button" class="btn btn-primary border-warning" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <router-link class="text-light text-decoration-none" :to="{ name: 'checkout' }">Procedi con
+                        l'ordine</router-link>
+                </button>
             </div>
 
         </div>
