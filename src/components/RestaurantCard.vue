@@ -75,7 +75,8 @@ export default {
         // border-radius: 50%;
         box-shadow: 0px 0px 8px black;
         transition: 0.4s;
-        border-radius: 10px;
+        border-radius: 50%;
+
     }
 
     #cover-img-wrapper {
