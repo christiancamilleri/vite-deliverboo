@@ -38,7 +38,7 @@ export default {
 </script>
 
 <template>
-    <div class="card rounded-pill" data-bs-toggle="modal" :data-bs-target="'#modal-' + product.id">
+    <div class="card rounded-pill border border-0" data-bs-toggle="modal" :data-bs-target="'#modal-' + product.id">
         <div class="h-100 row g-0">
             <div class="h-100 col-3">
                 <img class="my-img-card"
