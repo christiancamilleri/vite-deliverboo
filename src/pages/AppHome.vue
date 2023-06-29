@@ -147,7 +147,7 @@ export default {
             <form class="mb-5" action="" @submit.prevent="" @change="getRestaurants()">
                 <h2 class="text-center pb-4 text-shadow">Scegli tra le tue categorie preferite</h2>
 
-                <div class="row g-3 animate__animated animate__flip">
+                <div class="row g-3">
                     <div v-for="typology in typologiesObject"
                         class="my-typology btn-group form-check col-6 col-md-4 col-lg-2" role="group"
                         aria-label="Basic checkbox toggle button group">
