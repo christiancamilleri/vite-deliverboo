@@ -12,7 +12,7 @@ export default {
             slug: '',
             restaurantFound: false,
             restaurant: {},
-            isLoading: true,
+            isLoading: false,
         }
     },
 
@@ -28,15 +28,19 @@ export default {
 
     methods: {
         getRestaurant() {
+            this.isLoading = true;
             axios.get('http://127.0.0.1:8000/api/restaurants/' + this.slug).then(res => {
                 if (res.data.success) {
                     this.restaurant = res.data.restaurant;
                     document.title += ' - ' + this.restaurant.name;
+                    this.isLoading = false;
                     this.restaurantFound = true
                 } else {
+                    this.isLoading = false;
                     this.restaurantFound = false
                 }
             });
+
         },
 
         addToCart(object) {
@@ -122,7 +126,14 @@ export default {
     </div>
 
     <div class="container my-menu">
-        <div v-if="restaurantFound">
+
+        <div v-if="isLoading == true" id="loading">
+                <div  class="spinner-border" role="status" >
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+
+        <div v-else-if="restaurantFound">
             <h1 class="text-center">{{ restaurant.name }}</h1>
             <hr>
             <div class="row">
@@ -195,5 +206,15 @@ export default {
             padding-bottom: 150px;
         }
     }
+}
+
+#loading {
+    
+    height: 500px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 </style>

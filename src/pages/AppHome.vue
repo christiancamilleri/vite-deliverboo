@@ -171,8 +171,10 @@ export default {
             <h1 class="text-center text-shadow">Ristoranti</h1>
             <h4 class="text-center pb-4 text-shadow">Dai un'occhiata alla nostra selezione</h4>
 
-            <div v-if="isLoading == true" class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+            <div v-if="isLoading == true" id="loading">
+                <div  class="spinner-border" role="status" >
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
 
             <div v-else-if="success" class="row g-3">
@@ -294,5 +296,14 @@ form {
 
 .my-bg {
     background-color: #00000073;
+}
+
+#loading {
+    
+    height: 500px;
+
+    display: flex;
+    justify-content: center;
+
 }
 </style>
