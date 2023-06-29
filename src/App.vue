@@ -12,6 +12,12 @@ export default {
     }
   },
 
+  methods: {
+    tornaSu() {
+      window.scrollTo(0, 0);
+    }
+  },
+
   components: {
     AppHeader,
     AppHome,
@@ -29,6 +35,9 @@ export default {
     </main>
 
     <AppFooter></AppFooter>
+
+    <span class="position-fixed position-absolute bottom-0 end-0 bg-warning p-3 z-3" @click="tornaSu()">torna
+      su</span>
   </div>
 </template>
 
