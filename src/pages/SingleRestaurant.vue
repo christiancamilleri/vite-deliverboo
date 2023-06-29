@@ -22,6 +22,7 @@ export default {
 
     mounted() {
         this.slug = this.$route.params.slug;
+        window.scrollTo(0, 0);
 
         this.getRestaurant();
     },
@@ -128,10 +129,10 @@ export default {
     <div class="container my-menu">
 
         <div v-if="isLoading == true" id="loading">
-                <div  class="spinner-border" role="status" >
-                    <span class="visually-hidden">Loading...</span>
-                </div>
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
             </div>
+        </div>
 
         <div v-else-if="restaurantFound">
             <h1 class="text-center">{{ restaurant.name }}</h1>
@@ -209,7 +210,7 @@ export default {
 }
 
 #loading {
-    
+
     height: 500px;
 
     display: flex;

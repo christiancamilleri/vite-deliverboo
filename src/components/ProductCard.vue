@@ -101,8 +101,8 @@ export default {
 
 .card {
 
-    -webkit-box-shadow: 5px 5px 23px 5px #000000; 
-box-shadow: 5px 5px 23px 5px #000000;
+    -webkit-box-shadow: 5px 5px 23px 5px #000000;
+    box-shadow: 5px 5px 23px 5px #000000;
 
     background-color: rgba($color: #ffffff, $alpha: 0.8);
     height: 100px;
@@ -124,6 +124,9 @@ box-shadow: 5px 5px 23px 5px #000000;
     color: white;
     transition: 0.3s;
     scale: 105%;
+
+    -webkit-box-shadow: 5px 5px 23px 5px #ffffff;
+    box-shadow: 5px 5px 23px 5px #ffffff;
 }
 
 .my-img-modal {
