@@ -83,9 +83,9 @@ export default {
 
                 <hr>
 
-                <button type="button" class="btn btn-warning" data-bs-dismiss="offcanvas" aria-label="Close">
-                    <router-link v-if="store.cartItems.length" class="text-primary fw-bold text-decoration-none"
-                        :to="{ name: 'cart' }">Vai al
+                <button v-if="store.cartItems.length" type="button" class="btn btn-warning" data-bs-dismiss="offcanvas"
+                    aria-label="Close">
+                    <router-link class="text-primary fw-bold text-decoration-none" :to="{ name: 'cart' }">Vai al
                         carrello</router-link>
                 </button>
             </div>
