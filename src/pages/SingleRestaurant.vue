@@ -151,7 +151,7 @@ export default {
     }
 
     .my-logo {
-
+        height: 50%;
         aspect-ratio: 1;
         object-fit: cover;
 
@@ -162,7 +162,8 @@ export default {
 }
 
 .my-menu {
-    padding: 150px 0;
+    padding-top: 70px;
+    padding-bottom: 70px;
 }
 
 
@@ -173,6 +174,11 @@ export default {
                 height: 80%;
             }
         }
+
+        .my-menu {
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
     }
 }
 
@@ -182,6 +188,11 @@ export default {
             .my-logo {
                 height: 100%;
             }
+        }
+
+        .my-menu {
+            padding-top: 150px;
+            padding-bottom: 150px;
         }
     }
 }
