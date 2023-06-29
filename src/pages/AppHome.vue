@@ -144,16 +144,16 @@ export default {
 
     <section>
         <div class="container py-5">
-            <form class="mb-5" action="" @submit.prevent="" @change="getRestaurants()">
+            <form class="mb-5 " action="" @submit.prevent="" @change="getRestaurants()">
                 <h2 class="text-center pb-4 text-shadow">Scegli tra le tue categorie preferite</h2>
 
                 <div class="row g-3">
                     <div v-for="typology in typologiesObject"
-                        class="my-typology btn-group form-check col-6 col-md-4 col-lg-2" role="group"
+                        class="my-typology btn-group form-check col-6 col-md-4 col-lg-2 px-1" role="group"
                         aria-label="Basic checkbox toggle button group">
 
                         <input v-model="typologiesChecked" type="checkbox" name="typologies"
-                            class="btn-check form-check-input" :id="'typologies-' + typology.id" :value="typology.id">
+                            class="btn-check form-check-input " :id="'typologies-' + typology.id" :value="typology.id">
                         <label class="btn btn-outline-danger d-flex flex-column align-items-center"
                             :for="'typologies-' + typology.id">
                             <img class="w-80" :src="typology.img" alt="">
@@ -172,7 +172,7 @@ export default {
             <h4 class="text-center pb-4 text-shadow">Dai un'occhiata alla nostra selezione</h4>
 
             <div v-if="isLoading == true" id="loading">
-                <div  class="spinner-border" role="status" >
+                <div class="spinner-border" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
@@ -299,7 +299,7 @@ form {
 }
 
 #loading {
-    
+
     height: 500px;
 
     display: flex;

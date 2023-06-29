@@ -13,7 +13,7 @@ export default {
   },
 
   methods: {
-    tornaSu() {
+    scrollUp() {
       window.scrollTo(0, 0);
     }
   },
@@ -36,8 +36,11 @@ export default {
 
     <AppFooter></AppFooter>
 
-    <span class="position-fixed position-absolute bottom-0 end-0 bg-warning p-3 z-3" @click="tornaSu()">torna
-      su</span>
+    <button id="button-up"
+      class="btn btn-warning text-primary position-fixed rounded-circle z-3 d-none d-lg-flex align-items-center justify-content-center"
+      @click="scrollUp()">
+      <i class="fas fa-arrow-up fs-4"></i>
+    </button>
   </div>
 </template>
 
@@ -46,5 +49,12 @@ div {
   background-image: url('/img/sfondo-4.JPG');
   color: white;
   background-size: 30%;
+}
+
+#button-up {
+  width: 50px;
+  height: 50px;
+  bottom: 20px;
+  right: 20px;
 }
 </style>
