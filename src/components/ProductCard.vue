@@ -42,7 +42,7 @@ export default {
         <div class="h-100 row g-0">
             <div class="h-100 col-3">
                 <img class="my-img-card"
-                    :src="product.photo ? 'http://127.0.0.1:8000/storage/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
+                    :src="product.photo ? 'http://127.0.0.1:8000/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
                     alt="Product photo">
             </div>
             <div class="col-9 d-flex align-items-center">
@@ -65,7 +65,7 @@ export default {
                 </div>
                 <div class="modal-body text-center">
                     <img class="my-img-modal"
-                        :src="product.photo ? 'http://127.0.0.1:8000/storage/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
+                        :src="product.photo ? 'http://127.0.0.1:8000/' + product.photo : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'"
                         alt="">
                     <div class="card-text text-center p-2 cart-item">{{ product.description }}</div>
                 </div>

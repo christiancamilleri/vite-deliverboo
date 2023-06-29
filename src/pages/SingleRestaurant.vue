@@ -98,7 +98,7 @@ export default {
     computed: {
         img() {
             if (this.restaurant.logo) {
-                return 'http://127.0.0.1:8000/' + 'storage/' + this.restaurant.logo;
+                return 'http://127.0.0.1:8000/' + this.restaurant.logo;
             } else {
                 return '/img/no-logo.jpg';
             }
@@ -106,7 +106,7 @@ export default {
 
         cover() {
             if (this.restaurant.cover) {
-                return 'http://127.0.0.1:8000/' + 'storage/' + this.restaurant.cover;
+                return 'http://127.0.0.1:8000/' + this.restaurant.cover;
             } else {
                 return '/img/no-cover.jpg';
             }

@@ -22,6 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 #cart-wrapper {
-    padding-top: 100px;
+    padding-top: 150px;
+    padding-bottom: 150px;
 }
 </style>
