@@ -65,7 +65,7 @@ export default {
                             <a href="#!" class="text-reset">Sicuro</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-reset">Peciso</a>
+                            <a href="#!" class="text-reset">Preciso</a>
                         </li>
                     </ul>
                 </div>
