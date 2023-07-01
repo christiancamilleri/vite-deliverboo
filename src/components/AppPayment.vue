@@ -28,42 +28,6 @@ export default {
     },
 
     methods: {
-        payment() {
-            if (this.store.cartItems.length) {
-                if (this.dropinInstance.isPaymentMethodRequestable()) {
-                    this.paymentLoading = true;
-
-                    this.dropinInstance.requestPaymentMethod((err, payload) => {
-                        if (err) {
-                            // Handle errors in requesting payment method
-                            return;
-                        }
-
-                        this.payload.nonce = payload.nonce;
-                        this.payload.cartItems = this.store.cartItems;
-                        this.payload.amount = this.store.totalPrice;
-
-                        // Send payload.nonce to your server
-                        axios.post('http://127.0.0.1:8000/api/braintree/payment', this.payload).then(res => {
-                            this.paymentSuccess = res.data.success;
-                            this.paymentMessage = res.data.message;
-
-
-                            if (this.paymentSuccess) {
-                                this.emptyCart();
-                                this.payload.user = {};
-                            }
-                            else {
-                                this.errors = res.data.errors;
-                            }
-                            this.initPayment();
-                            this.paymentLoading = false;
-                        });
-                    });
-                }
-            }
-        },
-
         initPayment() {
             this.paymentReady = false;
 
@@ -91,6 +55,46 @@ export default {
                     this.dropinInstance = dropinInstance;
                     this.paymentReady = true;
                 });
+            });
+        },
+
+        generatePayload() {
+            if (this.store.cartItems.length) {
+                if (this.dropinInstance.isPaymentMethodRequestable()) {
+                    this.paymentLoading = true;
+
+                    this.dropinInstance.requestPaymentMethod((err, payload) => {
+                        if (err) {
+                            // Handle errors in requesting payment method
+                            console.log(err);
+                        }
+                        else {
+                            this.payload.nonce = payload.nonce;
+                            this.payload.cartItems = this.store.cartItems;
+                            this.payload.amount = this.store.totalPrice;
+                            this.completePayment();
+                        }
+                    });
+                }
+            }
+        },
+
+        completePayment() {
+            // Send payload.nonce to your server
+            axios.post('http://127.0.0.1:8000/api/braintree/payment', this.payload).then(res => {
+                this.paymentSuccess = res.data.success;
+                this.paymentMessage = res.data.message;
+
+
+                if (this.paymentSuccess) {
+                    this.emptyCart();
+                    this.payload.user = {};
+                }
+                else {
+                    this.errors = res.data.errors;
+                }
+                this.initPayment();
+                this.paymentLoading = false;
             });
         },
 
@@ -126,7 +130,7 @@ export default {
 </script>
 
 <template>
-    <form @submit.prevent="payment()" id="payment" class=" p-3 rounded-2">
+    <form @submit.prevent="generatePayload()" id="payment" class=" p-3 rounded-2">
         <div class="form-check ps-0 mb-3">
             <label class="form-label" id="name-addon">Nome *</label>
             <input v-model="payload.user.name" type="text" class="form-control"
